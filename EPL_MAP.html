@@ -1,0 +1,557 @@
+<!DOCTYPE html> 
+<html>
+ <head> <meta charset='utf-8' /> 
+ <title>
+ </title> <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+ <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
+
+ <style>
+ 
+body { margin:0; padding:0; } 
+#map { position:absolute; top:0; bottom:0; width:100%; }
+
+
+.marker {
+display: block;
+border: none;
+border-radius: 50%;
+/*cursor: pointer;*/
+padding: 0;
+}
+
+ </style>
+ </head> <body> 
+
+
+ 
+ <style> 
+ #map { position: fixed; width:65%; }
+ 
+ #features 
+ { 
+  width: 35%; 
+  margin-left: 65%; 
+  font-family: Calibri; 
+  overflow-y: scroll; 
+  background-color: #1E0122;
+ /* background-color: #1E0122; */
+ /*#2F2550*/
+  }
+ 
+  
+ section {
+ padding: 10px 30px; 
+line-height: 25px;
+ border-bottom: 1px solid #F8F8F8;
+ opacity: 0.25; 
+ font-size: 20px;
+  } 
+  
+  section.active {
+   opacity: 0.95;
+  } 
+  
+  section:last-child { 
+   border-bottom: none; 
+   margin-bottom: 10px;
+  } 
+  
+  .mapboxgl-popup { 
+   max-width: 400px;
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif; 
+  }
+
+
+.container {
+  position: relative;
+  margin-bottom: 60px;
+  margin-left: 45%;
+  width: 15px;
+  height: 5px;
+}
+
+
+
+.chevron {
+  position: absolute;
+  width: 28px;
+  height: 8px;
+  opacity: 0;
+  transform: scale3d(0.5, 0.5, 0.5);
+  animation: move 3s ease-out infinite;
+}
+
+.chevron:first-child {
+  animation: move 3s ease-out 1s infinite;
+}
+
+.chevron:nth-child(2) {
+  animation: move 3s ease-out 2s infinite;
+}
+
+.chevron:before,
+.chevron:after {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 51%;
+  background: #fff;
+}
+
+.chevron:before {
+  left: 0;
+  transform: skew(0deg, 30deg);
+}
+
+.chevron:after {
+  right: 0;
+  width: 50%;
+  transform: skew(0deg, -30deg);
+}
+
+@keyframes move {
+  25% {
+    opacity: 1;
+
+  }
+  33% {
+    opacity: 1;
+    transform: translateY(30px);
+  }
+  67% {
+    opacity: 1;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
+  }
+}
+
+.text {
+  display: block;
+  margin-top: 75px;
+  margin-left: -43px;
+  font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  font-size: 12px;
+  color: #fff;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: .10;
+  animation: pulse 2s linear alternate infinite;
+}
+
+@keyframes pulse {
+  to {
+    opacity: 1;
+  }
+}
+
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#share-buttons img {
+width: 35px;
+padding: 5px;
+border: 0;
+box-shadow: 0;
+display: inline;
+}
+
+
+
+
+
+ </style> 
+ 
+<div id='map'></div> 
+ <div id='features'>
+<section id='welcome' class='active'>
+   <img src="https://github.com/samuel-jones/epl/blob/master/epl_logo_white.png?raw=true"  style="width:40%;height:40%">
+ <center><font color="#F8F8F8"><h3>Preview for 2019/20</h3></center>
+<!--    <img src="https://freefrontend.com/assets/img/css-arrows/arrow-icon.gif" style="float:center;width:40%;height:2%;"> -->
+   <div class="container">
+  <div class="chevron"></div>
+  <div class="chevron"></div>
+  <div class="chevron"></div>
+  <span class="text">Scroll down</span>
+</div>
+ 
+    </section> 
+  
+  <section id='section1'> 
+ <font color="#F8F8F8"><h4>Arsenal</h4></font>
+ <img src="https://d2zywfiolv4f83.cloudfront.net/img/blog/2019%2F6%2Fbellerin22.jpg" style="width:80%;height:60%;">
+ <br> <h6> Another transition for Arsenal this season. The squad is badly in need of heavy investment but with the reported lack of funds, it is hard to see them getting the right players needed get them back into the Champions League. Will Unai Emery survive another season finishing outside the top 4? <br><br> Predition: 6th<br> Key man: Pierre-Emerick Aubameyang<br> Player to watch: Reiss Nelson</br>
+ </section> 
+
+ <section id='section2'> <font color="#F8F8F8"><h4>Aston Villa</h4></font>
+   <img src="https://production-354f.kxcdn.com/wp-content/uploads/sites/15/2019/04/1136190264-1206x602.jpg" style="width:80%;height:60%;">
+ <h6>Back after promotion. Under the guidance of Dean 'Guardiaola' Smith and with talisman Jack Grealish in fine form at the end of last season expect them to re-consolidate themselves as a premiership team once again.<br> <br>Predition: 15th. <br> Key man: Jack Grealish <br> Player to watch: John McCinn
+ </section> 
+ 
+ <section id='section3'> <font color="#F8F8F8"><h4>Bournemouth</h4></font> 
+  <img src="https://media-assets-03.thedrum.com/cache/images/thedrum-prod/s3-news-tmp-111981-afc_bournemouth_2017--2x1--940.jpg" style="width:80%;height:60%;">
+ <h6>Now an establised Premiership team, Bournemouth have quietly been spending heavily the past season or two (Lerma £25m, Solanke £19m, Rico £13m, Kelly £13m, Brooks £10m). They have assembled an entertaining and attacking side and will be hoping their squad can manager better with injuried this season. Whilst scoring goals may not be too much of a problem, they wont improve their standing if they shop another 70 goals. Difficult to see them finishing much higher than last season. <br><br>Predition: 11th. <br> Key man: David Brooks <br> Player to watch: Lloyd Kelly</h6></section>
+
+<!-- <section id='section4'> <font color="#F8F8F8"><h4>4. York</h4></font>
+ <h6>In 2016, Elvis Juice was born! BrewDog also opened 9 new bars from Berlin to York.</h6> </section>
+  -->
+ <section id='section4'> <font color="#F8F8F8">
+  <h4>Brighton</h4></font> 
+  <img src="https://cdn.footballfancast.com/wp-content/uploads/2019/04/Brighton-striker-Glenn-Murray-looks-dejected-after-defeat-to-Cardiff-e1555491795178-960x450.jpg" style="width:80%;height:60%;">
+  <h6>Lucky to survive last season, with safety only secured in their penultimate game. A look over their current squad reveals a true lack of quality at this level and they will once more be reliant on the goals of ageing but effective Glenn Murray. <br> <br>Predition: 20th. <br> Key man: Glenn Murray <br> Player to watch: Solly March</h6></section>
+
+     <section id='section5'> 
+ <font color="#F8F8F8"><h4>Burnley</h4></font>
+  <img src="https://cdn.hitc-s.com/i/1078/burnley_manager_sean_dyche_issues_instructions_to_his_players_af_888723.jpg" style="width:80%;height:60%;">
+
+ <h6>Unable to reach the dizzy heights of their 2017-2018 season, they suddenly look like a team in decline and the pressure seemed to tell in Sean Dyche and his grumpy post-match interviews. The quality of their football has gradually diminished in an alarming manner. One fears for their safety and Dyche's future.<br> <br>Predition: 20th. <br> Key man: James Tarkowski <br> Player to watch: Dwight McNeil</h6></section>  
+ </section>
+
+ <section id='section6'> <font color="#F8F8F8"><h4>Chelsea</h4></font> 
+   <img src="https://i.pinimg.com/originals/fa/40/bc/fa40bc958ecda2d7c9bf1b657daacd1a.jpg" style="width:80%;height:60%;">
+
+ <h6>If their transfer ban is upheld then this could be a real transition season under a new manager. An era without Eden Hazard also beckons, but this provides an opportunity to finally embrace their talented pool of academy graduates. They still possess plenty of experienced personnel, who have been used to winning trophies, and may well surprise a few people thi season. <br> <br>Predition: 3rd. <br> Key man: N'Golo Kanté <br> Player to watch: Callum Hudson-Odoi </section>  
+
+ 
+ <section id='section7'> <font color="#F8F8F8"><h4>Crystal Palace <h4></font> 
+ <img src="https://images.cdn.fourfourtwo.com/sites/fourfourtwo.com/files/styles/performance_teaser/public/wilfried-zaha-cropped_bxxrjpcksbvt13f66ti7g1yr3.jpg?itok=x0WxGARa&timestamp=1526234461" style="width:80%;height:60%;">
+
+ <h6>Roy Hodgson has done a steady job and looks right at home at Selhurst Pack. However, he will need to find a way to improve their home form and to find a regular goalscorer. Their season may hinge on the futures of Wilfried Zaha and Aaron Wan-Bissaka: if either are sold then they need to ensure the money re-invested wisely.<br> <br>Predition: 14th. <br> Key man: Wilfried Zaha <br> Player to watch: Jaïro Riedewald </section> 
+
+<section id='section8'> <font color="#F8F8F8"><h4>Everton</h4></font>
+  <img src="https://tot-tmp.azureedge.net/media/13500/everton-richarlison-1.jpg?anchor=center&mode=crop&width=1600" style="width:80%;height:60%;">
+
+ <h6>Farhad Moshiri has invested heavily, and is now really starting to build a competitive and skillful collection of players. They still look short of the type of out-and-out goalscorer who can fire them into the top 6. Will still be reliant on Richarlison and Gylfi Sigurðsson's dead balls, whilst hoping that the promising Calvert-Lewin can continue his development. <br> <br>Predition: 7th <br> Key man: Richarlison <br> Player to watch: Ademola Lookman </section>
+ 
+ <section id='section9'> <font color="#F8F8F8">
+   <img src="https://leicesterfc-static-files.s3.amazonaws.com/leicesterfc/photo/2019/03/09/20f39210-59b9-42f7-83ca-b4c5da3ce142/AO2Z5768.JPG" style="width:80%;height:60%;">
+
+  <h4>Leicester</h4></font> 
+  <h6>The 2016 champions look reinvigorated under new manager Brendan Rodger and will play an exciting brand of attacking football. They have gradually been assembling a good set of players and been making some smart buys, but they will have to be reliant on James Vardy for goals again - provided he still has the legs in him.<br> <br>Predition: 8th. <br> Key man: James Maddison <br> Player to watch: Harvey Barnes </section> 
+ 
+ 
+  <section id='section10'> 
+   <img src="https://gcs.thesouthafrican.com/2019/06/882e53d0-liverpool-2019-champions-league-750x375.jpg" style="width:80%;height:60%;">
+ <font color="#F8F8F8"><h4>Liverpool</h4></font>
+ <h6>European Champions who reached new heights last year. But still not enough for them to become Champions of England. In any other era this team would be the best in England. Their 30 year wait for an English title will go on. They will push Man City hard again but they may have missed their chance and it is unlikely to be as close a race this time. <br><br>Predition: 2nd. <br> Key man: Mo Salah <br> Player to watch: Naby Laye Keïta </section>
+ 
+ </section> <section id='section11'> <font color="#F8F8F8"><h4>Manchester City</h4></font> 
+   <img src="https://gcs.thesouthafrican.com/2019/05/08a26fb3-mancity-lift-epl-trophy-2019-750x375.jpg" style="width:80%;height:60%;">
+
+ <h6>Impossible to see the heavily invested juggernaut not maintaining their current grip and superiority on the English football. Expect a playing style of the highest quality, and with plenty of goals to boot too. The question that remains is whether they can finally make a serious impression in Europe.<br>Prediction: 1st</h6></section>  <br><br>Predition: 2nd. <br> Key man: Raheem Sterling <br> Player to watch: Oleksandr Zinchenko</section>
+ 
+ 
+ <section id='section12'> <font color="#F8F8F8"><h4>Manchester Utd</h4></font> 
+ <img src="https://s3-eu-west-1.amazonaws.com/bwinnewsprod/en/uploads/2016/07/Juan-Mata-disappointed-Man-Utd_1200x460_acf_cropped.jpg" style="width:80%;height:60%;">
+ 
+ <h6>Disjointed and Unbalanced sqaud. Inexperienced and unproven manager. This could be another difficult year for a team not used to mediocrity. Despite this they still possess some very talented skillful players on their day, whilst they will undoubtedly splash the cash (and pay over the odds) to bring in some new recruits. This may be enough to to see them push for - but never seriously threaten - the top four as they remain too far from being a polished product just yet. <br>Prediction: 5th</h6></section>  
+ 
+
+<section id='section13'> <font color="#F8F8F8"><h4>Newcastle Utd<h4></font>
+  <img src="https://www.cpfc.co.uk/siteassets/images/others/preview---1440-x-600/newcastle-wall.jpg" style="width:80%;height:60%;">
+
+ <h6>Rafa Benitez did an extremely good job given his resources and will rightly be missed by the fans. </h6> </section>
+ 
+ <section id='section14'> <font color="#F8F8F8">
+  <h4>Norwich</h4></font> 
+  <img src="https://www.swanseacity.com/sites/default/files/styles/focal_header_image_wide/public/image/2018-11/n21.jpg?itok=jAmvYoZh" style="width:80%;height:60%;">
+
+  <h6>May struggle.</h6> </section>
+
+     <section id='section15'> 
+ <font color="#F8F8F8"><h4>Sheffield Utd</h4></font>
+ <img src=" https://cdn.footballfancast.com/wp-content/uploads/2019/04/Billy-Sharp-Sheffield-United-2-960x450.jpg" style="width:80%;height:60%;">
+<h6>May struggle.</h6>
+ 
+ </section> <section id='section16'> <font color="#F8F8F8"><h4>Southampton</h4></font> 
+   <img src="https://s3-sfc.thirdlight.com/file/52809664600/width=1065/height=475/fit=crop" style="width:80%;height:60%;">
+
+ <h6>Struggled last season but the manager showed has smart ideas and needs time.</h6> 
+ </section> 
+ 
+ <section id='section17'> <font color="#F8F8F8"><h4>Tottenham Hotspur</h4></font> 
+  <img src="https://tot-tmp.azureedge.net/media/4682/spurs-team-goalcelebration-may2018-gettyimages-958089482.jpg" style="width:80%;height:60%;">
+
+ <h6>Will just make 4th.</h6> </section>
+
+<section id='section18'> <font color="#F8F8F8"><h4>Watford</h4></font>
+  <img src="https://www.cpfc.co.uk/siteassets/images/others/preview---1440-x-600/watford-celeb.jpg" style="width:80%;height:60%;">
+
+ <h6>They have now set the bar high after an excpetional season and some exciting football.</h6><br> <br>Predition: 12th. <br> Key man: Abdoulaye Doucouré <br> Player to watch: xxx </section></section>
+ 
+ <section id='section19'> <font color="#F8F8F8">
+  <h4>West Ham</h4></font> 
+ <img src="http://www.thewesthamway.co.uk/wp-content/uploads/2017/10/Sad-West-Ham-fans.jpg" style="width:80%;height:60%;">
+  <h6>Pablo Fornals, at £24 million, could prove to be an excellent purchase who could prove to be a successor to Dmitri Payer and promises to be a fan  favourite. Despite this, West Ham fans may have to temper their expectations as this season may prove to be yet another false dawn. <br> <br>Predition: 13th. <br> Key man: Pablo Fornals <br> Player to watch: Declan Rice </section> 
+.</h6> </section> 
+
+ <section id='section20'> <font color="#F8F8F8">
+  <h4>Wolves</h4></font> 
+   <img src="https://www.atlfmonline.com/images/wolvesfc.jpg" style="width:80%;height:60%;">
+
+  <h6>Really impressive last season.They have done their main business early and signed Raul Jimenez in a permanent deal. Can they finally up their performances against the 'lesser teams' as they do against the big guns? And how will their squad cope with the burden of the Europa League? They are now a known quality with a talented bunch of players but may fall short of last year's heights.</h6> <br> <br>Predition: 10th. <br> Key man: Rúben Neves <br> Player to watch: Morgan Gibbs-White </section> </section> 
+
+ <section id='section21'> 
+  <br>
+ <br>
+ <a href="https://twitter.com/samwise_v?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @samwise_v</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+ <br>
+ <br>
+<div id="share-buttons">
+        
+   
+    <!-- Email -->
+    <a href="mailto:?Subject=EPL Map&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 https://simplesharebuttons.com">
+        <img src="https://simplesharebuttons.com/images/somacro/email.png" alt="Email" />
+    </a>
+ 
+    <!-- Facebook -->
+    <a href="http://www.facebook.com/sharer.php?u=https://simplesharebuttons.com" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
+    </a>
+
+    <!-- Twitter -->
+    <a href="https://twitter.com/share?url=https://simplesharebuttons.com&amp;text=Simple%20Share%20Buttons&amp;hashtags=EPL" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
+    </a>
+    
+       <!-- LinkedIn -->
+    <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://simplesharebuttons.com" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/linkedin.png" alt="LinkedIn" />
+    </a>
+
+    
+    <!-- Pinterest -->
+    <a href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());">
+        <img src="https://simplesharebuttons.com/images/somacro/pinterest.png" alt="Pinterest" />
+    </a>
+    
+       
+    <!-- Reddit -->
+    <a href="http://reddit.com/submit?url=https://simplesharebuttons.com&amp;title=Simple Share Buttons" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/reddit.png" alt="Reddit" />
+    </a>
+    
+             
+  
+    
+   
+</div>
+
+<br>
+<br>
+<br>
+
+
+
+ <br>
+ <!-- <img src="http://snodnipper.github.io/os-zoomstack-masterclass/brand/ordnance_survey_white.png" style="width:40%;height:40%;"> -->
+ <p> <font size="1">Geographical data is based on Ordnance Survey Zoomstack. Contains OS data © Crown copyright and database rights 2018. Additional data for the new Tottenham Hotspur Stadium is based on OpenStreetMap data. © OpenStreetMap contributors. Logos have been sourced from Wikipedia under fair use terms but may be subject to copyright. Images have been sourced from Google under fair use terms and may be subject to copyright.</p>
+ 
+<br>
+<br>
+<br><br>
+<br>
+<br><br>
+<br>
+<br><br>
+<br>
+<br><br>
+<br>
+
+
+</font>
+</section> </div> 
+ <script> mapboxgl.accessToken = ''; 
+  var map = new mapboxgl.Map(
+   { container: 'map', style: 'https://raw.githubusercontent.com/samuel-jones/epl/master/SJ_EPL_MAP_STYLE_v2.json', 
+    maxZoom: 16, bearing: 0, 
+    center: [-3.056136, 52.831588],
+    zoom: 6, speed: 0.5,
+    pitch: 0 });
+
+
+var geojson = {
+"type": "FeatureCollection",
+"name": "stadia_epl",
+"features": [
+{ "type": "Feature", "properties": { "Name": "Emirates Stadium", "Team": "Arsenal", "Capacity": 60361, "Latitude": 51.555450, "Longitude": -0.108514, "Easting": 531236, "Northing": 185697, "iconSource": "https://raw.githubusercontent.com/samuel-jones/epl/master/arsenal.png" }, "geometry": { "type": "Point", "coordinates": [ -0.108436, 51.554901 ] } },
+{ "type": "Feature", "properties": { "Name": "Villa Park", "Team": "Aston_Villa", "Capacity": 42788, "Latitude": 52.509201, "Longitude": -1.88508, "Easting": 407897, "Northing": 290151, "iconSource": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f9/Aston_Villa_FC_crest_%282016%29.svg/225px-Aston_Villa_FC_crest_%282016%29.svg.png" }, "geometry": { "type": "Point", "coordinates": [ -1.88508, 52.509201 ] } },
+{ "type": "Feature", "properties": { "Name": "Seward Stadium", "Team": "Bournemouth", "Capacity": 10700, "Latitude": 50.735199, "Longitude": -1.83839, "Easting": 411501, "Northing": 92855, "iconSource": "SZ115928" }, "geometry": { "type": "Point", "coordinates": [ -1.83839, 50.735199 ] } },
+{ "type": "Feature", "properties": { "Name": "Amex Stadium", "Team": "Brighton", "Capacity": 22374, "Latitude": 50.860901, "Longitude": -0.08014, "Easting": 535213, "Northing": 108577, "iconSource": "TQ352085" }, "geometry": { "type": "Point", "coordinates": [ -0.083718, 50.861557 ] } },
+{ "type": "Feature", "properties": { "Name": "Turf Moor", "Team": "Burnley", "Capacity": 22546, "Latitude": 53.788799, "Longitude": -2.23018, "Easting": 384933, "Northing": 432522, "iconSource": "SD849325" }, "geometry": { "type": "Point", "coordinates": [ -2.23018, 53.788799 ] } },
+{ "type": "Feature", "properties": { "Name": "Stamford Bridge", "Team": "Chelsea", "Capacity": 41837, "Latitude": 51.481602, "Longitude": -0.191034, "Easting": 525711, "Northing": 177401, "iconSource": "TQ257774" }, "geometry": { "type": "Point", "coordinates": [ -0.191034, 51.481602 ] } },
+{ "type": "Feature", "properties": { "Name": "Selhurst Park", "Team": "Crystal_Palace", "Capacity": 26309, "Latitude": 51.3983, "Longitude": -0.085455, "Easting": 533284, "Northing": 168324, "iconSource": "TQ332683" }, "geometry": { "type": "Point", "coordinates": [ -0.085455, 51.3983 ] } },
+{ "type": "Feature", "properties": { "Name": "Goodison Park", "Team": "Everton", "Capacity": 40157, "Latitude": 53.438702, "Longitude": -2.96619, "Easting": 335914, "Northing": 393982, "iconSource": "SJ359939" }, "geometry": { "type": "Point", "coordinates": [ -2.96619, 53.438702 ] } },
+{ "type": "Feature", "properties": { "Name": "Molineux", "Team": "Wolves", "Capacity": 27828, "Latitude": 52.590401, "Longitude": -2.13061, "Easting": 391249, "Northing": 299185, "iconSource": "SO912991" }, "geometry": { "type": "Point", "coordinates": [ -2.13061, 52.590401 ] } },
+{ "type": "Feature", "properties": { "Name": "King Power Stadium", "Team": "Leicester_City", "Capacity": 32262, "Latitude": 52.6203, "Longitude": -1.14217, "Easting": 458171, "Northing": 302849, "iconSource": "SK581028" }, "geometry": { "type": "Point", "coordinates": [ -1.14217, 52.6203 ] } },
+{ "type": "Feature", "properties": { "Name": "Anfield", "Team": "Liverpool", "Capacity": 45522, "Latitude": 53.430801, "Longitude": -2.96096, "Easting": 336250, "Northing": 393098, "iconSource": "SJ362930" }, "geometry": { "type": "Point", "coordinates": [ -2.96096, 53.430801 ] } },
+{ "type": "Feature", "properties": { "Name": "Etihad Stadium", "Team": "Man_City", "Capacity": 47805, "Latitude": 53.483002, "Longitude": -2.20024, "Easting": 386809, "Northing": 398494, "iconSource": "https://mitickets.com/images/mi-images/thumbnail/Manchester_City.png" }, "geometry": { "type": "Point", "coordinates": [ -2.20024, 53.483002 ] } },
+{ "type": "Feature", "properties": { "Name": "Old Trafford", "Team": "Man_Utd", "Capacity": 75811, "Latitude": 53.4631, "Longitude": -2.29139, "Easting": 380751, "Northing": 396301, "iconSource": "SJ807963" }, "geometry": { "type": "Point", "coordinates": [ -2.29139, 53.4631 ] } },
+{ "type": "Feature", "properties": { "Name": "St James Park", "Team": "Newcastle_United", "Capacity": 52387, "Latitude": 54.975601, "Longitude": -1.62179, "Easting": 424307, "Northing": 564619, "iconSource": "NZ243646" }, "geometry": { "type": "Point", "coordinates": [ -1.62179, 54.975601 ] } },
+{ "type": "Feature", "properties": { "Name": "Carrow Road", "Team": "Norwich_City", "Capacity": 27033, "Latitude": 52.622101, "Longitude": 1.30912, "Easting": 624081, "Northing": 307846, "iconSource": "TG240078" }, "geometry": { "type": "Point", "coordinates": [ 1.30912, 52.622101 ] } },
+{ "type": "Feature", "properties": { "Name": "Bramall Lane", "Team": "Sheffield_Utd", "Capacity": 32702, "Latitude": 53.3703, "Longitude": -1.47083, "Easting": 435307, "Northing": 386068, "iconSource": "SK353860" }, "geometry": { "type": "Point", "coordinates": [ -1.47083, 53.3703 ] } },
+{ "type": "Feature", "properties": { "Name": "St Mary's Stadium", "Team": "Southampton", "Capacity": 32689, "Latitude": 50.9058, "Longitude": -1.39114, "Easting": 442907, "Northing": 111990, "iconSource": "SU429119" }, "geometry": { "type": "Point", "coordinates": [ -1.39114, 50.9058 ] } },
+{ "type": "Feature", "properties": { "Name": "Vicarage Road", "Team": "Watford", "Capacity": 17477, "Latitude": 51.649799, "Longitude": -0.401569, "Easting": 510684, "Northing": 195766, "iconSource": "TQ106957" }, "geometry": { "type": "Point", "coordinates": [ -0.401569, 51.649799 ] } },
+{ "type": "Feature", "properties": { "Name": "White Hart Lane", "Team": "Spurs", "Capacity": 36230, "Latitude": 51.603298, "Longitude": -0.065684, "Easting": 534057, "Northing": 191156, "iconSource": "TQ340911" }, "geometry": { "type": "Point", "coordinates": [ -0.065984, 51.604598 ] } },
+{ "type": "Feature", "properties": { "Name": "Olympic Stadium", "Team": "West_Ham", "Capacity": 60000, "Latitude": 51.5383, "Longitude": -0.016587, "Easting": 537653, "Northing": 184019, "iconSource": "TQ376840" }, "geometry": { "type": "Point", "coordinates": [ -0.016587, 51.5383 ] } }
+]
+};
+
+
+
+// add markers to map
+geojson.features.forEach(function(marker) {
+// create a DOM element for the marker
+var el = document.createElement('div');
+el.className = 'marker';
+el.style.backgroundImage = 'url(https://raw.githubusercontent.com/samuel-jones/epl/master/' + marker.properties.Team + '.png';
+// el.style.backgroundImage = 'url(https://raw.githubusercontent.com/samuel-jones/epl/master/'+ marker.properties.Team.join+'.png/)';
+// el.style.backgroundImage = 'url(https://raw.githubusercontent.com/samuel-jones/epl/master/' + marker.properties.Team.join('/') + '/)';
+// el.style.backgroundImage = 'url(https://placekitten.com/g/' + marker.properties.iconSize.join('/') + '/)';
+https://raw.githubusercontent.com/samuel-jones/epl/master/arsenal.png
+el.style.width =  '30px';
+el.style.height = '30px';
+// el.style.width = marker.properties.iconSize[0] + 'px';
+// el.style.height = marker.properties.iconSize[1] + 'px';
+ 
+// el.addEventListener('click', function() {
+// window.alert(marker.properties.Name + '  ' + marker.properties.Capacity );
+// });
+ 
+// add marker to map
+new mapboxgl.Marker(el)
+.setLngLat(marker.geometry.coordinates)
+.addTo(map);
+});
+
+
+map.addControl(new mapboxgl.NavigationControl(), 'top-left');
+
+map.addControl(new mapboxgl.FullscreenControl(), 'top-left');
+
+
+// Add geolocate control to the map.
+map.addControl(new mapboxgl.GeolocateControl({
+positionOptions: {
+enableHighAccuracy: true
+},
+trackUserLocation: true
+}), 'top-left');
+
+
+  var chapters = {
+   'welcome': { bearing: 0, 
+               center: [-3.056136, 52.831588],
+               zoom: 6, 
+               speed: 0.5,
+               pitch: 0 }, 
+   'section1': { bearing: 0, 
+                center: [-0.1086111,51.556], //arsenal emirates  
+                speed: 0.5, zoom: 20, 
+                pitch: 60 },
+   'section2': { center: [-1.884722,52.509167], //villa park
+                bearing: 0, zoom: 19, 
+                speed: 0.5,
+                pitch: 60 }, 
+   'section3': { bearing: 0, 
+                center: [-1.838333, 50.735278], //bournemouth
+                zoom: 20, speed: 0.5, pitch: 60 }, 
+   'section4': { bearing: 0,
+                center: [-0.08014, 50.860901],
+                zoom: 13, speed: 0.5, pitch: 60 },
+   'section5': { center: [-2.23018, 53.788799],
+                bearing: 0, zoom: 19, 
+                speed: 0.5,
+                pitch: 60 }, 
+   'section6': { bearing: 0, 
+                center: [-0.191034, 51.481602], 
+                zoom: 20, speed: 0.5, pitch: 60 }, 
+   'section7': { bearing: 0,
+                center: [-0.085455, 51.3983],
+                zoom: 20, speed: 0.5, pitch: 60 },
+   'section8': { center: [-2.96619, 53.438702],
+                bearing: 0, zoom: 19, 
+                speed: 0.5,
+                pitch: 60 }, 
+   'section9': { bearing: 0, 
+                center: [-1.14217, 52.6203], 
+                zoom: 20, speed: 0.5, pitch: 60 }, 
+   'section10': { bearing: 0,
+                center: [-2.96096, 53.430801],
+                zoom: 20, speed: 0.5, pitch: 60 },
+   'section11': { center: [-2.20024, 53.483002],
+                bearing: 0, zoom: 19, 
+                speed: 0.5,
+                pitch: 60 }, 
+    'section12': { center: [-2.29139, 53.4631],
+                bearing: 0, zoom: 19, 
+                speed: 0.5,
+                pitch: 60 }, 
+   'section13': { bearing: 0, 
+                center: [-1.62179, 54.975601], 
+                zoom: 20, speed: 0.5, pitch: 60 }, 
+   'section14': { bearing: 0,
+                center: [1.30912, 52.622101],
+                zoom: 20, speed: 0.5, pitch: 60 },
+   'section15': { bearing: 0, 
+                center: [-1.47083, 53.3703], 
+                speed: 0.5, zoom: 20, 
+                pitch: 60 },
+   'section16': { center: [-1.39114, 50.9058],
+                bearing: 0, zoom: 19, 
+                speed: 0.5,
+                pitch: 60 }, 
+   'section17': { bearing: 0, 
+                center: [-0.065684, 51.603298], 
+                zoom: 20, speed: 0.5, pitch: 60 }, 
+   'section18': { bearing: 0,
+                center: [-0.401569, 51.649799],
+                zoom: 20, speed: 0.5, pitch: 60 },
+   'section19': { center: [-0.016587, 51.5383],
+                bearing: 0, zoom: 19, 
+                speed: 0.5,
+                pitch: 60 }, 
+   'section20': { bearing: 0, center: [-2.13061, 52.590401],
+                zoom: 19, pitch: 60, 
+                speed: 0.5 },
+   'section21':{ bearing: 0, 
+               center: [-3.056136, 52.831588],
+               zoom: 6, 
+               speed: 0.5,
+               pitch: 0 } };
+  // On every scroll event, check which element is on screen
+ window.onscroll = function() { 
+  var chapterNames = Object.keys(chapters); 
+  for (var i = 0; i < chapterNames.length; i++){
+  var chapterName = chapterNames[i]; 
+  if (isElementOnScreen(chapterName)) { 
+   setActiveChapter(chapterName);
+   break; 
+  }
+  }
+ }; 
+  var activeChapterName = 'baker'; 
+  function setActiveChapter(chapterName) { 
+   if (chapterName === activeChapterName) return;
+   map.flyTo(chapters[chapterName]); 
+   document.getElementById(chapterName).setAttribute('class', 'active'); 
+   document.getElementById(activeChapterName).setAttribute('class', ''); 
+   activeChapterName = chapterName;
+  } 
+  function isElementOnScreen(id) { 
+   var element = document.getElementById(id); 
+   var bounds = element.getBoundingClientRect(); 
+   return bounds.top < window.innerHeight && bounds.bottom > 0;
+  } 
+ </script>
+ </body>
+</html>
