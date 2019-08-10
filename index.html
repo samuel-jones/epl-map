@@ -5,6 +5,7 @@
  </title> <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
 <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
+<link href="https://fonts.googleapis.com/css?family=Red+Hat+Display|Roboto:300,400,700&display=swap" rel="stylesheet">
 
  <style>
  
@@ -32,7 +33,7 @@ padding: 0;
  { 
   width: 35%; 
   margin-left: 65%; 
-  font-family: Calibri; 
+ font-family: 'Roboto Thin', sans-serif;
   overflow-y: scroll; 
   background-color: #1E0122;
  /* background-color: #1E0122; */
@@ -75,7 +76,7 @@ line-height: 25px;
 
 .chevron {
   position: absolute;
-  width: 28px;
+  width: 33px;
   height: 8px;
   opacity: 0;
   transform: scale3d(0.5, 0.5, 0.5);
@@ -135,7 +136,7 @@ line-height: 25px;
   margin-top: 75px;
   margin-left: -43px;
   font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   color: #fff;
   text-transform: uppercase;
   white-space: nowrap;
@@ -165,8 +166,196 @@ display: inline;
 }
 
 
+.bold {
+font-weight:bold;
+}
 
 
+.resp-sharing-button__link,
+.resp-sharing-button__icon {
+  display: inline-block
+}
+
+.resp-sharing-button__link {
+  text-decoration: none;
+  color: #fff;
+  margin: 0.5em
+}
+
+.resp-sharing-button {
+  border-radius: 5px;
+  transition: 25ms ease-out;
+  padding: 0.5em 0.75em;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif
+}
+
+.resp-sharing-button__icon svg {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.4em;
+  vertical-align: top
+}
+
+.resp-sharing-button--small svg {
+  margin: 0;
+  vertical-align: middle
+}
+
+/* Non solid icons get a stroke */
+.resp-sharing-button__icon {
+  stroke: #fff;
+  fill: none
+}
+
+/* Solid icons get a fill */
+.resp-sharing-button__icon--solid,
+.resp-sharing-button__icon--solidcircle {
+  fill: #fff;
+  stroke: none
+}
+
+.resp-sharing-button--twitter {
+  background-color: #55acee
+}
+
+.resp-sharing-button--twitter:hover {
+  background-color: #2795e9
+}
+
+.resp-sharing-button--pinterest {
+  background-color: #bd081c
+}
+
+.resp-sharing-button--pinterest:hover {
+  background-color: #8c0615
+}
+
+.resp-sharing-button--facebook {
+  background-color: #3b5998
+}
+
+.resp-sharing-button--facebook:hover {
+  background-color: #2d4373
+}
+
+.resp-sharing-button--tumblr {
+  background-color: #35465C
+}
+
+.resp-sharing-button--tumblr:hover {
+  background-color: #222d3c
+}
+
+.resp-sharing-button--reddit {
+  background-color: #5f99cf
+}
+
+.resp-sharing-button--reddit:hover {
+  background-color: #3a80c1
+}
+
+.resp-sharing-button--google {
+  background-color: #dd4b39
+}
+
+.resp-sharing-button--google:hover {
+  background-color: #c23321
+}
+
+.resp-sharing-button--linkedin {
+  background-color: #0077b5
+}
+
+.resp-sharing-button--linkedin:hover {
+  background-color: #046293
+}
+
+.resp-sharing-button--email {
+  background-color: #777
+}
+
+.resp-sharing-button--email:hover {
+  background-color: #5e5e5e
+}
+
+.resp-sharing-button--xing {
+  background-color: #1a7576
+}
+
+.resp-sharing-button--xing:hover {
+  background-color: #114c4c
+}
+
+.resp-sharing-button--whatsapp {
+  background-color: #25D366
+}
+
+.resp-sharing-button--whatsapp:hover {
+  background-color: #1da851
+}
+
+.resp-sharing-button--hackernews {
+background-color: #FF6600
+}
+.resp-sharing-button--hackernews:hover, .resp-sharing-button--hackernews:focus {   background-color: #FB6200 }
+
+.resp-sharing-button--vk {
+  background-color: #507299
+}
+
+.resp-sharing-button--vk:hover {
+  background-color: #43648c
+}
+
+.resp-sharing-button--facebook {
+  background-color: #3b5998;
+  border-color: #3b5998;
+}
+
+.resp-sharing-button--facebook:hover,
+.resp-sharing-button--facebook:active {
+  background-color: #2d4373;
+  border-color: #2d4373;
+}
+
+.resp-sharing-button--twitter {
+  background-color: #55acee;
+  border-color: #55acee;
+}
+
+.resp-sharing-button--twitter:hover,
+.resp-sharing-button--twitter:active {
+  background-color: #2795e9;
+  border-color: #2795e9;
+}
+
+.resp-sharing-button--email {
+  background-color: #777777;
+  border-color: #777777;
+}
+
+.resp-sharing-button--email:hover,
+.resp-sharing-button--email:active {
+  background-color: #5e5e5e;
+  border-color: #5e5e5e;
+}
+
+.resp-sharing-button--reddit {
+  background-color: #c4613c;
+  border-color: #c4613c;
+}
+
+.resp-sharing-button--reddit:hover,
+.resp-sharing-button--reddit:active {
+  background-color: #FF4500;
+  border-color: #FF4500;
+}
+
+
+
+
+h4   { font-family: 'Roboto Bold', sans-serif; font-size: 20px;}
+h6  { font-family: 'Roboto Thin', sans-serif; font-size: 13px;}
 
  </style> 
  
@@ -174,8 +363,8 @@ display: inline;
  <div id='features'>
 <section id='welcome' class='active'>
    <img src="https://github.com/samuel-jones/epl/blob/master/epl_logo_white.png?raw=true"  style="width:40%;height:40%">
- <center><font color="#F8F8F8"><h3>Preview for 2019/20</h3></center>
-<!--    <img src="https://freefrontend.com/assets/img/css-arrows/arrow-icon.gif" style="float:center;width:40%;height:2%;"> -->
+ <center><font color="#F8F8F8"><h3>Transfer Roundup and Preview for 2019/20 Season</center>
+
    <div class="container">
   <div class="chevron"></div>
   <div class="chevron"></div>
@@ -188,17 +377,27 @@ display: inline;
   <section id='section1'> 
  <font color="#F8F8F8"><h4>Arsenal</h4></font>
  <img src="https://d2zywfiolv4f83.cloudfront.net/img/blog/2019%2F6%2Fbellerin22.jpg" style="width:80%;height:60%;">
- <br> <h6> As another transition year beckons for Arsenal - thye needed a good transfer window and they may just have got it. For the first time in recent memory they have addressed all areas that needed attention. Dani Ceballos looks capable of filling the Cazorla-type midfielder they missed the last two seasons. The expensive acquisition of Nicolas Pepe took many people by suprise but finally gives them a goal-scoring wide player - and an trio of forwards to rival Liverpool. Given the loss of Koscielny, David Luis could prove to be a shrewd purchase given the current market for defenders. Likewise Tierney who could finally give better balance as an attacking full back, but may take a couple of months to reach fitness.  Despite such a promosing window, doubts will rightly continue about their defence and may once more be their Achilles' heel. <br><br> Predition: 6th<br> Key man: Pierre-Emerick Aubameyang<br> Player to watch: Chris Willock.</br>
+ <h6><strong>Major ins: </strong> Nicolas Pépé  - Lille £72m; William Saliba - St‑Étienne £27m; Kieran Tierney - Celtic £25m; David Luiz - Chelsea £8m; Gabriel Martinelli - Ituano £6m; Dani Ceballos - Real Madrid loan.
+
+
+
+
+
+<br><br><strong>Major outs: </strong> Krystian Bielik - Derby £7.5m; Laurent Koscielny - Bordeaux £4.6m; David Ospina - Napoli £3.5m; William Saliba - St-Étienne loan; Carl Jenkinson - Nottm Forest undiscl; Danny Welbeck - Watford, free; Alex Iwobi - Everton £35m. <br><br> <strong>Prediction: </strong> 5th<br><strong>Key man: </strong> Pierre-Emerick Aubameyang<br> <strong>Player to watch: </strong> Chris Willock.</br>
  </section> 
 
  <section id='section2'> <font color="#F8F8F8"><h4>Aston Villa</h4></font>
    <img src="https://production-354f.kxcdn.com/wp-content/uploads/sites/15/2019/04/1136190264-1206x602.jpg" style="width:80%;height:60%;">
- <h6>Back after promotion, and some rather heavy investment approaching £150m. People will question whether it is a case of 'too many, too soon' after 13 new signing and whether they are off sufficient premiership quality. But Villa fans feel Dean Smith has done what was needed and also retained some key loan players from last season such as Tyrone Mings. Their survival may depend on whether their goal-scoring pedigree in the Championship can up a gear to Premiership levels - pressure may be on £22m signing Wesley to quickly fill Tammy Abraham's goal-scoring boots from last season. Fans will also hope Trezeguet (£8.8m signing from the Turkish league) is named after the former French World Cup winner for a reason.<br> <br>Predition: 15th. <br> Key man: Jack Grealish <br> Player to watch: John McCinn
+ <h6><strong>Major ins: </strong> Tyrone Mings - Bournemouth, £26.5m; Wesley Moraes - Club Brugge, £22m; Douglas Luiz - Manchester City, £15m; Matt Targett - Southampton, £14m; Ezri Konsa - Brentford, £12m; Marvelous Nakamba - Club Brugge, £11m; Björn Engels - Reims, £9m; Trezeguet - Kasimpasa, £8.8m; Tom Heaton - Burnley, £8m; Anwar El Ghazi - Lille, £8m; Frédéric Guilbert - Caen, £5m; Jota - Birmingham, £4m; Kortney Hause - Wolves, £3m.
+
+<br><br><strong>Major outs: </strong> Glenn Whelan - released; Ritchie De Laet - released; Alan Hutton - released; Mile Jedinak - released; Micah Richards - released.<br> <br><strong>Prediction: </strong> 16th. <br><strong>Key man: </strong> Jack Grealish <br> <strong>Player to watch: </strong> John McCinn
  </section> 
  
  <section id='section3'> <font color="#F8F8F8"><h4>Bournemouth</h4></font> 
   <img src="https://media-assets-03.thedrum.com/cache/images/thedrum-prod/s3-news-tmp-111981-afc_bournemouth_2017--2x1--940.jpg" style="width:80%;height:60%;">
- <h6>Now an establised Premiership team, Bournemouth have quietly gone about their transfer business with little headlines, despite spending some £50m. Loan signing Harry Wilson, however, may be the pick of the bunch if he can continue the form from the Championship last season. Fans will be relieved that they have held on to key players from last season - Nathan Ake and Ryan Fraser -  despite interest from bigger clubs. To see any improvement however, they surely cannot afford to ship another 70 goals. Difficult to see them finishing much higher than last season. <br><br>Predition: 11th. <br> Key man: David Brooks <br> Player to watch: Lloyd Kelly</h6></section>
+ <h6><strong>Major ins: </strong> Philip Billing - Huddersfield, £15m; Lloyd Kelly - Bristol City, £13m; Arnaut Danjuma - Club Brugge, £13m; Jack Stacey - Luton, £4m; Harry Wilson - Liverpool, loan.
+
+<br><br><strong>Major outs: </strong> Tyrone Mings - Aston Villa, £26.5m; Lys Mousset - Sheffield United, £10m; Harry Arter - Fulham, loan. <br><br><strong>Prediction: </strong> 12th. <br><strong>Key man: </strong> David Brooks <br> <strong>Player to watch: </strong> Lloyd Kelly</h6></section>
 
 <!-- <section id='section4'> <font color="#F8F8F8"><h4>4. York</h4></font>
  <h6>In 2016, Elvis Juice was born! BrewDog also opened 9 new bars from Berlin to York.</h6> </section>
@@ -206,97 +405,133 @@ display: inline;
  <section id='section4'> <font color="#F8F8F8">
   <h4>Brighton</h4></font> 
   <img src="https://cdn.footballfancast.com/wp-content/uploads/2019/04/Brighton-striker-Glenn-Murray-looks-dejected-after-defeat-to-Cardiff-e1555491795178-960x450.jpg" style="width:80%;height:60%;">
-  <h6>Lucky to survive last season, with safety only secured in their penultimate game. The £20m aquisition of Neil Maupay means they may finally be less reliant on the goals of the ageing but effective Glenn Murray. Aaron Mooy could prove a smart loan signing, whilst Leandro Trossard (£15m from Genk) has impressed in pre-season. Eleswhere, however, a look over their current squad reveals a true lack of quality. Fans will also be praying that new manager Graham Potter may be able to tease more out of last seasons underwhelimg big buys (Alireza Jahanbakhsh and Jürgen Locadia)  <br> <br>Predition: 18th. <br> Key man: Glenn Murray <br> Player to watch: Solly March</h6></section>
+  <h6><strong>Major ins: </strong> Neal Maupay - Brentford, £20m; Adam Webster - Bristol City, £20m; Leandro Trossard - Genk, £15m; Matt Clarke - Portsmouth, £5m; Taylor Richards - Manchester City, £2.5m; Romaric Yapi - Paris St-Germain, undisclosed; Aaron Mooy - Huddersfield, loan.
+
+<br><br><strong>Major outs: </strong> Markus Suttner - Fortuna Düsseldorf, £2m; Matt Clarke - Derby, loan; Anthony Knockaert - Fulham, loan; Ben White - Leeds, loan; Alexis MacAllister - Boca Juniors, loan. <br> <br><strong>Prediction: </strong> 18th. <br><strong>Key man: </strong> Glenn Murray <br> <strong>Player to watch: </strong> Solly March</h6></section>
 
      <section id='section5'> 
  <font color="#F8F8F8"><h4>Burnley</h4></font>
   <img src="https://cdn.hitc-s.com/i/1078/burnley_manager_sean_dyche_issues_instructions_to_his_players_af_888723.jpg" style="width:80%;height:60%;">
 
- <h6>Unable to reach the dizzy heights of their 2017-2018 season, they suddenly look like a team in decline and the pressure seemed to tell in Sean Dyche and his grumpy post-match interviews. The quality of their football has gradually diminished in an alarming manner and - compared some other teams likely to finishe near them - their transfer business does not scream excitement.  Perhaps the return of local home favourite Jay Rodriguez (£10m from WBA) can help galvanize the fans. However, one fears for their safety and Dyche's future.<br> <br>Predition: 20th. <br> Key man: James Tarkowski <br> Player to watch: Dwight McNeil</h6></section>  
+ <h6><strong>Major ins: </strong> Jay Rodriguez - West Brom, £10m; Bailey Peacock-Farrell - Leeds, £3m; Erik Pieters - Stoke, £1.5m; Joel Senior - Curzon Ashton, undiscl.;Ryan Cooney - Bury, loan; Danny Drinkwater - Chelsea, loan; Adam Phillips - free.
+
+<br><br><strong>Major outs: </strong> Tom Heaton  -Aston Villa, £8m; Peter Crouch - released; Stephen Ward - released; Anders Lindegaard - released.<br> <br><strong>Prediction: </strong> 20th. <br><strong>Key man: </strong> James Tarkowski <br> <strong>Player to watch: </strong> Dwight McNeil</h6></section>  
  </section>
 
  <section id='section6'> <font color="#F8F8F8"><h4>Chelsea</h4></font> 
    <img src="https://i.pinimg.com/originals/fa/40/bc/fa40bc958ecda2d7c9bf1b657daacd1a.jpg" style="width:80%;height:60%;">
 
- <h6>Despite a transfer ban, Chelsea have still manage to secure two permanent signings worth some £100m in Mateo Kovacic (£40m from Real Madrid) and Christian Pulisic (£58m from Dortmund). Fans wll hope that the latter can go some way to filling the Eden Hazard void, but as a new era beckons under Frank Lampard fans will surely hope that they can finally start to embrace a pool of talend academy graduates most of which were previously farmed out on loan. One must also remeber they still possess plenty of experienced personnel  - and a squad of player who are used used to winning trophies - and they may well surprise a few people this season. <br> <br>Predition: 4th. <br> Key man: N'Golo Kanté <br> Player to watch: Callum Hudson-Odoi </section>  
+ <h6><strong>Major ins: </strong> Mateo Kovacic - Real Madrid, £40.2m; Christian Pulisic - Borussia Dortmund, £58m.
+
+<br><br><strong>Major outs: </strong> Eden Hazard - Real Madrid, £88.5m; Ola Aina -Torino, £8.8m; David Luiz - Arsenal, £8m;Tomas Kalas - Bristol City, £8m; Kasey Palmer - Bristol City, £3.5m; Ethan Ampadu - RB Leipzig, loan; Lewis Baker - Fortuna Düsseldorf, loan; Jake Clarke-Salter - Birmingham, loan; Danny Drinkwater - Burnley, loan; Gary Cahill - released. <br> <br><strong>Prediction: </strong> 4th. <br><strong>Key man: </strong> N'Golo Kanté <br> <strong>Player to watch: </strong> Callum Hudson-Odoi </section>  
 
  
  <section id='section7'> <font color="#F8F8F8"><h4>Crystal Palace <h4></font> 
  <img src="https://images.cdn.fourfourtwo.com/sites/fourfourtwo.com/files/styles/performance_teaser/public/wilfried-zaha-cropped_bxxrjpcksbvt13f66ti7g1yr3.jpg?itok=x0WxGARa&timestamp=1526234461" style="width:80%;height:60%;">
 
- <h6>Roy Hodgson has done a steady job and looks right at home at Selhurst Pack. Given the sale of Wan-Bissaka, fans will surely be disappointed that little of this has been re-invested in new signings. Question marks must surely remain regarding Zaha's future after he made it no secret that he wants to move on. For a successful season Palace need him back focussed on his current club. James McCarthy (£3m from Everon) and Gary Cahill (free transfer) represent good business but it is difficult to see how they squad has improved too muhc since last season.<br> <br>Predition: 14th. <br> Key man: Wilfried Zaha <br> Player to watch: Jaïro Riedewald </section> 
+ <h6><h6><strong>Major ins: </strong> Jordan Ayew - Swansea, £3m; James McCarthy - Everton, £3m; Gary Cahill - Chelsea, free; Victor Camarasa - Real Betis, loan;Stephen Henderson - free.
+
+<br><br><strong>Major outs: </strong>Aaron Wan-Bissaka  - Manchester United, £45m; Julian Speroni - released; Bakary Sako - released; Jason Puncheon - released; Alexander Sørloth - Trabzonspor, loan; Pape Souaré - released.<br> <br><strong>Prediction: </strong> 13th. <br><strong>Key man: </strong> Wilfried Zaha <br> <strong>Player to watch: </strong> Jaïro Riedewald </section> 
 
 <section id='section8'> <font color="#F8F8F8"><h4>Everton</h4></font>
   <img src="https://tot-tmp.azureedge.net/media/13500/everton-richarlison-1.jpg?anchor=center&mode=crop&width=1600" style="width:80%;height:60%;">
 
- <h6>Farhad Moshiri has invested heavily, and toward the end of the transfer window it all felt a bit haphazard with bids being made left right and centre. Despite this, they are now really starting to build a competitive and skillful collection of players. Moise Kean (Juventus, £29m) could prove a sensation and may help them finally get the goals to can fire them into the top 6. Fabain Delph (Man City, £8.5m) could prove one of the bargains of the window. Whilst some will see last-minute signing of Iwobi as a bit of a desperate, move after failing to secure Zaha, a new setting and more central playing position could see him reach his potential. If last season's signings (Richarlison, Digne, Andre Silva) can continue their impressive form this could be a landmark season for the Toffees. <br> <br>Predition: 6th <br> Key man: Richarlison <br> Player to watch: Ademola Lookman </section>
+ <h6><strong>Major ins: </strong> Moise Kean - Juventus, £29m; Jean-Philippe Gbamin - Mainz, £22.5m; André Gomes - Barcelona, £22m; Fabian Delph - Man City, £8.5m; Djibril Sidibé - Monaco, loan; Alex Iwobi - Arsenal, £35m.
+
+<br><br><strong>Major outs: </strong> Idrissa Gueye - PSG, £29m; Ademola Lookman - RB Leipzig, £22.5m; Nikola Vlasic - CSKA Moscow, £12m; James McCarthy - Crystal Palace, £3m; Ashley Williams - released; Jonjoe Kenny - Schalke, loan; Sandro Ramírez - Real Valladolid, loan. Mo Besic  - Sheffield Utd, loan. <br> <br><strong>Prediction: </strong> 6th <br><strong>Key man: </strong> Richarlison <br> <strong>Player to watch: </strong> Moise Kean </section>
  
  <section id='section9'> <font color="#F8F8F8">
    <img src="https://leicesterfc-static-files.s3.amazonaws.com/leicesterfc/photo/2019/03/09/20f39210-59b9-42f7-83ca-b4c5da3ce142/AO2Z5768.JPG" style="width:80%;height:60%;">
 
   <h4>Leicester</h4></font> 
-  <h6>The 2016 champions look reinvigorated under new manager Brendan Rodger and fans hope they will continue to play an exciting brand of attacking football. After securing £80 for Harry Maguire, they purchased a tri of quality midfielders: Youri Tielemans (Monaco, £40m), Ayoze Pérez (Newcastle, £30m) and Dennis Praet (Sampdoria, £18m) who should also fit in well with the already-quality midfiler James Maddison. But an Harry Maguire sized hole exists in defence, and fans must hope that likes of Caglar Soyuncu - the £20m signing many saw a coup last season - can finally step up.   <br> <br>Predition: 8th. <br> Key man: James Maddison <br> Player to watch: Harvey Barnes </section> 
+  <h6><strong>Major ins: </strong> Youri Tielemans - Monaco, £40m; Ayoze Pérez  -Newcastle, £30m; Dennis Praet - Sampdoria, £18m; James Justin - Luton, £8m; Mitchell Clark - Aston Villa, free; Vontae Daley-Campbell  - Arsenal, undiscl; George Hirst - Leuven, undiscl; Ali Reghba - Bohemians, undiscl.
+
+<br><br><strong>Major outs: </strong> Harry Maguire - Man Utd, £80m; Shinji Okazaki - Málaga, free; Danny Simpson - released. <br> <br><strong>Prediction: </strong> 8th. <br><strong>Key man: </strong> James Maddison <br> <strong>Player to watch: </strong> Harvey Barnes </section> 
  
  
   <section id='section10'> 
    <img src="https://gcs.thesouthafrican.com/2019/06/882e53d0-liverpool-2019-champions-league-750x375.jpg" style="width:80%;height:60%;">
  <font color="#F8F8F8"><h4>Liverpool</h4></font>
- <h6>European Champions who reached new heights last year. Liverpool saw very little activity over the summer transfer window, but there was few if any areas to upgrade. Adrian (free transfer) should prove a more able backup to Allison, whilst Harvey Elliott (Fulham, undisclosed) is one for the future.  It is difficult to see how Salah, Mane and Firmino will not be at least as effective as last season. The return from injury for Joe Gomez could see them improve slightly defensively and Keita may finally prove his full worth this season. They will surley push Man City hard again - but they may have missed their chance and it is unlikely to be as close a race this time. <br><br>Predition: 2nd. <br> Key man: Mo Salah <br> Player to watch: Naby Laye Keïta </section>
+ <h6><strong>Major ins: </strong> Sepp van den Berg Zwolle, £1.3m; Harvey Elliott Fulham, undisclosed; Adrián free
+
+<br><br><strong>Major outs: </strong> Danny Ings - Southampton, £18m; Simon Mignolet - Club Brugge, £6.4m; Rafael Camacho - Sporting, £5m; Daniel Sturridge -free; Alberto Moreno  - Villarreal, free; Sheyi Ojo - Rangers, loan; Marko Grujic - Hertha Berlin, loan; Harry Wilson - Bournemouth, loan.<br><br><strong>Prediction: </strong> 2nd. <br><strong>Key man: </strong> Mo Salah <br> <strong>Player to watch: </strong> Naby Laye Keïta </section>
  
  </section> <section id='section11'> <font color="#F8F8F8"><h4>Manchester City</h4></font> 
    <img src="https://gcs.thesouthafrican.com/2019/05/08a26fb3-mancity-lift-epl-trophy-2019-750x375.jpg" style="width:80%;height:60%;">
 
- <h6>Impossible to see the heavily invested juggernaut not maintaining their current grip and superiority on the English football. Given what has gone on at othr clubs it has felt like a quiet window for City, yet they have spent over £100m. Rodri (Atlético Madrid, £62.6m) and João Cancelo (Juventus, £60m) may not revolutionise their team but the former is sureley the natural successor to Fernandinho and Cancelo literally a swap (and upgrade) on Danilo. No other premiership club has such a complete squad, and the Citizens may be the only one who really would not miss a player Sane (should he leave, or be out injurred for the long-term as reports suggest). The only question that remains is whether they can finally make a serious impression in Europe.<br>Prediction: 1st</h6></section>  <br><br>Predition: 2nd. <br> Key man: Raheem Sterling <br> Player to watch: Oleksandr Zinchenko</section>
+ <h6><strong>Major ins: </strong> Rodri - Atlético Madrid, £62.6m; João Cancelo - Juventus, £60m; Angeliño - PSV, £5.3m, Pedro Porro - Girona, undiscl.
+
+<br><br><strong>Major outs: </strong> Danilo - Juventus, £32.3m; Douglas Luiz - Aston Villa, £15m; Fabian Delph - Everton, £8.5m; Manu García - Sporting Gijón, £3.6m; Taylor Richards - Brighton, £2.5m; Thierry Ambrose - Metz, £2.3m; Pablo Marí - Flamengo, £1.5m; Patrick Roberts - Norwich, loan.<br><br>Prediction: 1st. <br>Key man: Raheem Sterling <br> <strong>Player to watch: </strong> Oleksandr Zinchenko</section>
  
  
  <section id='section12'> <font color="#F8F8F8"><h4>Manchester Utd</h4></font> 
  <img src="https://s3-eu-west-1.amazonaws.com/bwinnewsprod/en/uploads/2016/07/Juan-Mata-disappointed-Man-Utd_1200x460_acf_cropped.jpg" style="width:80%;height:60%;">
  
- <h6>Spending £125m on Harry Maguire and Wan-Bissaka may have whet many fans' appetite, but failure to be build on these purchases mean that their squad remains disjointed and unbalanced sqaud. Combine that with a relatively inexperienced and unproven manager, a moody and inconsistant French superstar (Pogba), an expensive flop (Sanchez) and selling last seasons top score (Lukaku) without a replacement. This could be another difficult year for a team not used to mediocrity. Despite this they still possess some very talented players on their day and fans will hope that playing Martial through as the central stirker will mean he can finally find some consistancy and prove his undoubted potential.  But it is looking the top four will remain too far from and they may need to look to threats from elsewhere <br>Prediction: 7th</h6></section>  
+ <h6><strong>Major ins: </strong> Harry Maguire - Leicester, £80m; Aaron Wan‑Bissaka - Crystal Palace, £45m; Daniel James - Swansea, £15m.
+
+<br><br><strong>Major outs: </strong> Romelu Lukaku - Inter, £70m; Ander Herrera - PSG, free; Antonio Valencia - LDU Quito, free.
+  <br><br>Prediction: 7th. <br><strong>Key man:</strong>David de Gea  <br> <strong>Player to watch: </strong> Daniel James</section></section>  
 
 <section id='section13'> <font color="#F8F8F8"><h4>Newcastle Utd<h4></font>
-  <img src="https://www.cpfc.co.uk/siteassets/images/others/preview---1440-x-600/newcastle-wall.jpg" style="width:80%;height:60%;">
+  <img src="https://i2.wp.com/metro.co.uk/wp-content/uploads/2019/07/GettyImages-1127630326.jpg" style="width:80%;height:60%;">
 
- <h6>Rafa Benitez did an extremely good job given his resources and will rightly be missed by the fans. </h6> </section>
+ <h6><strong>Major ins: </strong> Joelinton - Hoffenheim £40m; Allan Saint‑Maximin - Nice £16.5m; Emil Krafth - Amiens £5m; Kyle Scott - Chelsea free; Jake Turner - Bolton free; Jetro Willems - Eintracht Frankfurt loan; Andy Carroll - free.
+
+<br><br><strong>Major outs: </strong> Ayoze Pérez - Leicester £30m; Joselu Alavés - £2.5m; Dan Barlaser - Rotherham loan; Mohamed Diamé - released; Liam Gibson - Grimsby loan; Freddie Woodman - Swansea loan. <br><br>Prediction: 17th. <br>Key man: Jamaal Lascalles <br> <strong>Player to watch: </strong>  Allan Saint-Maximin </section>
  
  <section id='section14'> <font color="#F8F8F8">
   <h4>Norwich</h4></font> 
-  <img src="https://www.swanseacity.com/sites/default/files/styles/focal_header_image_wide/public/image/2018-11/n21.jpg?itok=jAmvYoZh" style="width:80%;height:60%;">
+  <img src="https://www.canaries.co.uk/siteassets/image/2018-19-season/qpr-h/pukki-celeb-2.png/Large" style="width:80%;height:60%;">
 
-  <h6>May struggle.</h6> </section>
+  <h6><strong>Major ins: </strong>Sam Byram - West Ham, £750k; Aidan Fitzpatrick - Patrick Thistle, £350k; Patrick Roberts - Manchester City, loan; Daniel Adshead - Rochdale, undiscl; Josip Drmic - Borussia Mönchengladbach, free; Archie Mair - Abderden, undiscl; Rob Nizet - Anderlecht, undiscl; Rocky Bushiri - Oostende, undiscl; Ralf Fährmann - Schalke, loan; Charlie Gilmour - Arsenal, free; Ibrahim Amadou - Sevilla, loan.
+
+<br><br><strong>Major outs: </strong>
+Matt Jarvis - released; Ivo Pinto Dinamo Zagreb, free; Steven Naismith - released; Adam Phillips Burnley, free.<br><br>Prediction: 15th. <br>Key man: Teemu Pukki <br> <strong>Player to watch: </strong> Max Aarons </section>
 
      <section id='section15'> 
  <font color="#F8F8F8"><h4>Sheffield Utd</h4></font>
  <img src=" https://cdn.footballfancast.com/wp-content/uploads/2019/04/Billy-Sharp-Sheffield-United-2-960x450.jpg" style="width:80%;height:60%;">
-<h6>May struggle.</h6>
+<h6><strong>Major ins: </strong> Oli McBurnie - Swansea, £18m; Lys Mousset - Bournemouth, £10m; Callum Robinson - Preston, £8m; Luke Freeman - QPR, 5m; Ben Osborn - Nottm Forest £3.5m; Phil Jagielka - Everton, free; Ravel Morrison - free; Michael Verrips - Mechelen, free; Dean Henderson - Manchester United, loan; Mo Besic - Everton, loan.
+
+<br><br><strong>Major outs: </strong> Conor Washington - Hearts, free; Martin Cranie - Luton, free; Ched Evans - Fleetwood, undiscl; Rhys Norrington-Davies - Rochdale, free; Mark Duffy - Stoke loan.<br><br>Prediction: 19th. <br>Key man: Billy Sharp <br> <strong>Player to watch: Jack O'Connell</strong> </section>
  
  </section> <section id='section16'> <font color="#F8F8F8"><h4>Southampton</h4></font> 
    <img src="https://s3-sfc.thirdlight.com/file/52809664600/width=1065/height=475/fit=crop" style="width:80%;height:60%;">
 
- <h6>Struggled last season but the manager showed has smart ideas and needs time.</h6> 
- </section> 
+ <h6><strong>Major ins: </strong> Moussa Djenepo -  Standard Liège, £14m; Che Adams - Birmingham, £15m; Danny Ings - Liverpool, £18m.
+
+<br><br><strong>Major outs: </strong> Matt Targett - Aston Villa, £13m; Sam Gallagher - Blackburn, £5m; Charlie Austin - West Brom, £4m. <br><br>Prediction: 14th. <br><strong>Key man: </strong> James Ward-Prowse <br> <strong>Player to watch: </strong> Che Adams</section>
+
  
  <section id='section17'> <font color="#F8F8F8"><h4>Tottenham Hotspur</h4></font> 
   <img src="https://tot-tmp.azureedge.net/media/4682/spurs-team-goalcelebration-may2018-gettyimages-958089482.jpg" style="width:80%;height:60%;">
 
- <h6>Will just make 4th.</h6> </section>
+ <h6><strong>Major ins: </strong> Tanguy Ndombele - Lyon, £55.5m; Jack Clarke - Leeds, £10m; Giovani Lo Celso - Real Betis, loan; Ryan Sessegnon - Fulham, £25m.
+
+<br><br><strong>Major outs: </strong> Kieran Trippier - Atlético Madrid, £20m; Vincent Janssen - Monterrey, £6.3m; Michel Vorm - released; Fernando Llorente - released; Tobi Oluwayemi - Celtic, undiscl. <br><br>Prediction: 3rd. <br>Key man: Harry Kane  <br> <strong>Player to watch: </strong> Oliver Skipp </section>
 
 <section id='section18'> <font color="#F8F8F8"><h4>Watford</h4></font>
-  <img src="https://www.cpfc.co.uk/siteassets/images/others/preview---1440-x-600/watford-celeb.jpg" style="width:80%;height:60%;">
+  <img src="https://www.telegraph.co.uk/content/dam/football/2019/02/22/189333564_Action-Images-via-Reuters_Premier-League-Cardiff-City-v-Watford_trans_NvBQzQNjv4BqSPB5MNdjszQozpI7v_IAqqAaIWUMTjAZAZOoGxR0nAg.jpg?imwidth=450" style="width:80%;height:60%;">
 
- <h6>They have now set the bar high after an excpetional season and some exciting football.</h6><br> <br>Predition: 12th. <br> Key man: Abdoulaye Doucouré <br> Player to watch: xxx </section></section>
+ <h6><strong>Major ins: </strong> Ismaïla Sarr - Rennes, £30m; Danny Welbeck - Arsenal, free; Bayli Spencer-Adams - Arsenal, free; Joseph Hungbo - Crystal Palace, free; Sam Dalby - Leeds, undiscl; Tom Dele‑Bashiru - Manchester City, free.
+
+<br><br><strong>Major outs: </strong> Dodi Lukebakio - Hertha Berlin, £18m; Miguel Britos - released; Obbi Oularé - Standard Liège, undiscl.; Jerome Sinclair - VVV-Venlo, loan.<br> <br><strong>Prediction: </strong> 10th. <br><strong>Key man: </strong> Abdoulaye Doucouré <br> <strong>Player to watch: </strong> Ismaïla Sarr  </section></section>
  
  <section id='section19'> <font color="#F8F8F8">
   <h4>West Ham</h4></font> 
  <img src="http://www.thewesthamway.co.uk/wp-content/uploads/2017/10/Sad-West-Ham-fans.jpg" style="width:80%;height:60%;">
-  <h6>Pablo Fornals, at £24 million, could prove to be an excellent purchase who could prove to be a successor to Dmitri Payer and promises to be a fan  favourite. Despite this, West Ham fans may have to temper their expectations as this season may prove to be yet another false dawn. <br> <br>Predition: 13th. <br> Key man: Pablo Fornals <br> Player to watch: Declan Rice </section> 
+  <h6><strong>Major ins: </strong> Sébastien Haller - Eintracht Frankfurt £40.7m; Pablo Fornals -  Villarreal, £24m; Albian Ajeti - Basel, £8m; Gonçalo Cardoso - Boavista, undiscl
+
+<br><br><strong>Major outs: </strong> Marko Arnautovic - Shanghai SIPG, £22.4m; Edimilson Fernandes - Mainz, £8m; Pedro Obiang - Sassuolo, £7.2m; Reece Oxford - Augsburg, £3.6m; Lucas Pérez - Alavés, £2m; Sam Byram - Norwich, £750k; Andy Carroll - Newcastle, free.<br> <br><strong>Prediction: </strong> 11th. <br><strong>Key man: </strong> Felipe Anderson <br> <strong>Player to watch: </strong> Declan Rice </section> 
 .</h6> </section> 
 
  <section id='section20'> <font color="#F8F8F8">
   <h4>Wolves</h4></font> 
    <img src="https://www.atlfmonline.com/images/wolvesfc.jpg" style="width:80%;height:60%;">
 
-  <h6>Really impressive last season.They have done their main business early and signed Raul Jimenez in a permanent deal. Can they finally up their performances against the 'lesser teams' as they do against the big guns? And how will their squad cope with the burden of the Europa League? They are now a known quality with a talented bunch of players but may fall short of last year's heights.</h6> <br> <br>Predition: 10th. <br> Key man: Rúben Neves <br> Player to watch: Morgan Gibbs-White </section> </section> 
+  <h6><strong>Major ins: </strong> Raúl Jiménez - Benfica, £30m; Patrick Cutrone - Milan, £16.2m; Leander Dendoncker - Anderlecht, £12m; Pedro Neto - Lazio, £10.8m; Bruno Jordão - Lazio, £7.2m; Jesús Vallejo - Real Madrid, loan; Renat Dadashov - Estoril, undiscl
+
+<br><br><strong>Major outs: </strong> Kortney Hause - Aston Villa, £3m; Renat Dadashov - Paços Ferreira, loan; Hélder Costa - Leeds, loan; Ivan Cavaleiro - Fulham, loan.<br> <br><strong>Prediction: </strong> 9th. <br><strong>Key man: </strong> Raúl Jiménez <br> <strong>Player to watch: </strong> Morgan Gibbs-White </section> </section> 
 
  <section id='section21'> 
   <br>
@@ -305,55 +540,46 @@ display: inline;
  <br>
  <br>
 <div id="share-buttons">
-        
-   
-    <!-- Email -->
-    <a href="mailto:?Subject=EPL Map&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 https://simplesharebuttons.com">
-        <img src="https://simplesharebuttons.com/images/somacro/email.png" alt="Email" />
-    </a>
- 
-    <!-- Facebook -->
-    <a href="http://www.facebook.com/sharer.php?u=https://simplesharebuttons.com" target="_blank">
-        <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
-    </a>
 
-    <!-- Twitter -->
-    <a href="https://twitter.com/share?url=https://simplesharebuttons.com&amp;text=Simple%20Share%20Buttons&amp;hashtags=EPL" target="_blank">
-        <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
-    </a>
-    
-       <!-- LinkedIn -->
-    <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://simplesharebuttons.com" target="_blank">
-        <img src="https://simplesharebuttons.com/images/somacro/linkedin.png" alt="LinkedIn" />
-    </a>
+<!-- Sharingbutton E-Mail -->
+<a class="resp-sharing-button__link" href="mailto:?subject=EPL%20Map%20-%20Season%20Preview&amp;body=https%3A%2F%2Fsamuel-jones.github.io%2Fepl-map%2F" target="_self" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C5.38 0 0 5.38 0 12s5.38 12 12 12 12-5.38 12-12S18.62 0 12 0zm8 16c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V8c0-1.1.9-2 2-2h12c1.1 0 2 .9 2 2v8z"/><path d="M17.9 8.18c-.2-.2-.5-.24-.72-.07L12 12.38 6.82 8.1c-.22-.16-.53-.13-.7.08s-.15.53.06.7l3.62 2.97-3.57 2.23c-.23.14-.3.45-.15.7.1.14.25.22.42.22.1 0 .18-.02.27-.08l3.85-2.4 1.06.87c.1.04.2.1.32.1s.23-.06.32-.1l1.06-.9 3.86 2.4c.08.06.17.1.26.1.17 0 .33-.1.42-.25.15-.24.08-.55-.15-.7l-3.57-2.22 3.62-2.96c.2-.2.24-.5.07-.72z"/></svg>
+    </div>
+  </div>
+</a>
 
-    
-    <!-- Pinterest -->
-    <a href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());">
-        <img src="https://simplesharebuttons.com/images/somacro/pinterest.png" alt="Pinterest" />
-    </a>
-    
-       
-    <!-- Reddit -->
-    <a href="http://reddit.com/submit?url=https://simplesharebuttons.com&amp;title=Simple Share Buttons" target="_blank">
-        <img src="https://simplesharebuttons.com/images/somacro/reddit.png" alt="Reddit" />
-    </a>
-    
-             
-  
+<!-- Sharingbutton Facebook -->
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsamuel-jones.github.io%2Fepl-map%2F" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C5.38 0 0 5.38 0 12s5.38 12 12 12 12-5.38 12-12S18.62 0 12 0zm3.6 11.5h-2.1v7h-3v-7h-2v-2h2V8.34c0-1.1.35-2.82 2.65-2.82h2.35v2.3h-1.4c-.25 0-.6.13-.6.66V9.5h2.34l-.24 2z"/></svg>
+    </div>
+  </div>
+</a>
+
+<!-- Sharingbutton Twitter -->
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=EPL%20Map%20-%20Season%20Preview&amp;url=https%3A%2F%2Fsamuel-jones.github.io%2Fepl-map%2F" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C5.38 0 0 5.38 0 12s5.38 12 12 12 12-5.38 12-12S18.62 0 12 0zm5.26 9.38v.34c0 3.48-2.64 7.5-7.48 7.5-1.48 0-2.87-.44-4.03-1.2 1.37.17 2.77-.2 3.9-1.08-1.16-.02-2.13-.78-2.46-1.83.38.1.8.07 1.17-.03-1.2-.24-2.1-1.3-2.1-2.58v-.05c.35.2.75.32 1.18.33-.7-.47-1.17-1.28-1.17-2.2 0-.47.13-.92.36-1.3C7.94 8.85 9.88 9.9 12.06 10c-.04-.2-.06-.4-.06-.6 0-1.46 1.18-2.63 2.63-2.63.76 0 1.44.3 1.92.82.6-.12 1.95-.27 1.95-.27-.35.53-.72 1.66-1.24 2.04z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+
+<!-- Sharingbutton Reddit -->
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3A%2F%2Fsamuel-jones.github.io%2Fepl-map%2F&amp;resubmit=true&amp;title=EPL%20Map%20-%20Season%20Preview" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="9.391" cy="13.392" r=".978"/><path d="M14.057 15.814c-1.14.66-2.987.655-4.122-.004-.238-.138-.545-.058-.684.182-.13.24-.05.545.19.685.72.417 1.63.646 2.568.646.93 0 1.84-.228 2.558-.642.24-.13.32-.44.185-.68-.14-.24-.445-.32-.683-.18zM5 12.086c0 .41.23.78.568.978.27-.662.735-1.264 1.353-1.774-.2-.207-.48-.334-.79-.334-.62 0-1.13.507-1.13 1.13z"/><path d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0zm6.673 14.055c.01.104.022.208.022.314 0 2.61-3.004 4.73-6.695 4.73s-6.695-2.126-6.695-4.74c0-.105.013-.21.022-.313C4.537 13.73 4 12.97 4 12.08c0-1.173.956-2.13 2.13-2.13.63 0 1.218.29 1.618.757 1.04-.607 2.345-.99 3.77-1.063.057-.803.308-2.33 1.388-2.95.633-.366 1.417-.323 2.322.085.302-.81 1.076-1.397 1.99-1.397 1.174 0 2.13.96 2.13 2.13 0 1.177-.956 2.133-2.13 2.133-1.065 0-1.942-.79-2.098-1.81-.734-.4-1.315-.506-1.716-.276-.6.346-.818 1.395-.88 2.087 1.407.08 2.697.46 3.728 1.065.4-.468.987-.756 1.617-.756 1.17 0 2.13.953 2.13 2.13 0 .89-.54 1.65-1.33 1.97z"/><circle cx="14.609" cy="13.391" r=".978"/><path d="M17.87 10.956c-.302 0-.583.128-.79.334.616.51 1.082 1.112 1.352 1.774.34-.197.568-.566.568-.978 0-.623-.507-1.13-1.13-1.13z"/></svg>
+    </div>
+  </div>
+</a>
+
     
    
 </div>
 
-<br>
-<br>
-<br>
-
-
-
- <br>
- <!-- <img src="http://snodnipper.github.io/os-zoomstack-masterclass/brand/ordnance_survey_white.png" style="width:40%;height:40%;"> -->
- <p> <font size="1">Geographical data is based on Ordnance Survey Zoomstack. Contains OS data © Crown copyright and database rights 2018. Additional data for the new Tottenham Hotspur Stadium is based on OpenStreetMap data. © OpenStreetMap contributors. Logos have been sourced from Wikipedia under fair use terms but may be subject to copyright. Images have been sourced from Google under fair use terms and may be subject to copyright.</p>
+<br> <p> <font size="1">Geographical data is based on Ordnance Survey Zoomstack. Contains OS data © Crown copyright and database rights 2018. Additional data for the new Tottenham Hotspur Stadium is based on OpenStreetMap data. © OpenStreetMap contributors. Logos have been sourced from Wikipedia under fair use terms but may be subject to copyright. Images have been sourced from Google under fair use terms and may be subject to copyright.<br>Information on transfers derived from a Guardian article on Fri 9 Aug 2019 available <a href="https://www.theguardian.com/football/2019/aug/09/transfer-window-team-guide-premier-league-summer-deals"style="color:white">here.</a></p>
  
 <br>
 <br>
@@ -466,7 +692,7 @@ trackUserLocation: true
                 zoom: 20, speed: 0.5, pitch: 60 }, 
    'section4': { bearing: 0,
                 center: [-0.08014, 50.860901],
-                zoom: 13, speed: 0.5, pitch: 60 },
+                zoom: 19, speed: 0.5, pitch: 60 },
    'section5': { center: [-2.23018, 53.788799],
                 bearing: 0, zoom: 19, 
                 speed: 0.5,
