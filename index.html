@@ -1,0 +1,515 @@
+<!DOCTYPE html> 
+<html>
+ <head> <meta charset='utf-8' /> 
+ <title>
+ </title> <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+ <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
+
+ <style>
+ 
+body { margin:0; padding:0; } 
+#map { position:absolute; top:0; bottom:0; width:100%; }
+
+
+.marker {
+display: block;
+border: none;
+border-radius: 50%;
+/*cursor: pointer;*/
+padding: 0;
+}
+
+ </style>
+ </head> <body> 
+
+
+ 
+ <style> 
+ #map { position: fixed; width:65%; }
+ 
+ #features 
+ { 
+  width: 35%; 
+  margin-left: 65%; 
+  font-family: Calibri; 
+  overflow-y: scroll; 
+  background-color: #1E0122;
+ /* background-color: #1E0122; */
+ /*#2F2550*/
+  }
+ 
+  
+ section {
+ padding: 10px 30px; 
+line-height: 25px;
+ border-bottom: 1px solid #F8F8F8;
+ opacity: 0.25; 
+ font-size: 20px;
+  } 
+  
+  section.active {
+   opacity: 0.95;
+  } 
+  
+  section:last-child { 
+   border-bottom: none; 
+   margin-bottom: 10px;
+  } 
+  
+  .mapboxgl-popup { 
+   max-width: 400px;
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif; 
+  }
+
+
+.container {
+  position: relative;
+  margin-bottom: 60px;
+  margin-left: 45%;
+  width: 15px;
+  height: 5px;
+}
+
+
+
+.chevron {
+  position: absolute;
+  width: 28px;
+  height: 8px;
+  opacity: 0;
+  transform: scale3d(0.5, 0.5, 0.5);
+  animation: move 3s ease-out infinite;
+}
+
+.chevron:first-child {
+  animation: move 3s ease-out 1s infinite;
+}
+
+.chevron:nth-child(2) {
+  animation: move 3s ease-out 2s infinite;
+}
+
+.chevron:before,
+.chevron:after {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 51%;
+  background: #fff;
+}
+
+.chevron:before {
+  left: 0;
+  transform: skew(0deg, 30deg);
+}
+
+.chevron:after {
+  right: 0;
+  width: 50%;
+  transform: skew(0deg, -30deg);
+}
+
+@keyframes move {
+  25% {
+    opacity: 1;
+
+  }
+  33% {
+    opacity: 1;
+    transform: translateY(30px);
+  }
+  67% {
+    opacity: 1;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
+  }
+}
+
+.text {
+  display: block;
+  margin-top: 75px;
+  margin-left: -43px;
+  font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  font-size: 12px;
+  color: #fff;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: .10;
+  animation: pulse 2s linear alternate infinite;
+}
+
+@keyframes pulse {
+  to {
+    opacity: 1;
+  }
+}
+
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#share-buttons img {
+width: 35px;
+padding: 5px;
+border: 0;
+box-shadow: 0;
+display: inline;
+}
+
+
+
+
+
+ </style> 
+ 
+<div id='map'></div> 
+ <div id='features'>
+<section id='welcome' class='active'>
+   <img src="https://github.com/samuel-jones/epl/blob/master/epl_logo_white.png?raw=true"  style="width:40%;height:40%">
+ <center><font color="#F8F8F8"><h3>EPL Stadia 2020/21</h3></center>
+<!--    <img src="https://freefrontend.com/assets/img/css-arrows/arrow-icon.gif" style="float:center;width:40%;height:2%;"> -->
+   <div class="container">
+  <div class="chevron"></div>
+  <div class="chevron"></div>
+  <div class="chevron"></div>
+  <span class="text">Scroll down</span>
+</div>
+ 
+    </section> 
+  
+  <section id='section1'> 
+ <font color="#F8F8F8"><h4>Arsenal</h4></font>
+ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Emirates_Stadium_east_side_at_dusk.jpg/450px-Emirates_Stadium_east_side_at_dusk.jpg" style="width:80%;height:60%;">
+<br><br>Ground: Emirates Stadium<br> Capacity: 60,704<br> Year built: 2006 </br>
+ </section> 
+
+ <section id='section2'> <font color="#F8F8F8">
+   <font color="#F8F8F8"><h4>Aston Villa</h4></font>
+ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Villa_Park.jpg/450px-Villa_Park.jpg" style="width:80%;height:60%;">
+<br><br>Ground: Villa Park<br> Capacity: 42,749<br> Year built: 1897</br>
+ </section> 
+ 
+ <section id='section3'> 
+
+ <font color="#F8F8F8"><h4>Brighton & Hove Albion</h4></font>
+ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Falmer_Stadium_-_night.jpg/330px-Falmer_Stadium_-_night.jpg" style="width:80%;height:60%;">
+<br><br>Ground: Falmer Stadium (also known as The Amex) <br> Capacity: 30,750 <br> Year built: 2008</br>
+
+ </section>
+
+<!-- <section id='section4'> <font color="#F8F8F8"><h4>4. York</h4></font>
+ <h6>In 2016, Elvis Juice was born! BrewDog also opened 9 new bars from Berlin to York.</h6> </section>
+  -->
+ <section id='section4'>  <font color="#F8F8F8"><h4>Burnley</h4></font>
+ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/James_Hargreaves_Stand_Burnley.jpg/375px-James_Hargreaves_Stand_Burnley.jpg" style="width:80%;height:60%;">
+<br><br>Ground: Turf Moor<br> Capacity: 21,944<br> Year built: 1833</br></section>
+
+     <section id='section5'> 
+  <font color="#F8F8F8"><h4>Chelsea</h4></font>
+ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Stamford_Bridge_Clear_Skies.JPG/450px-Stamford_Bridge_Clear_Skies.JPG" style="width:80%;height:60%;">
+<br><br>Ground: Stamford Bridge<br> Capacity: 40,834<br> Year built: 1876 (renovated in 1905 and 1998) </br> 
+ </section>
+
+ <section id='section6'>  <font color="#F8F8F8"><h4>Crystal Palace</h4></font>
+ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Selhurst_Park_Holmesdale_Stand.jpg/330px-Selhurst_Park_Holmesdale_Stand.jpg" style="width:80%;height:60%;">
+<br><br>Ground: Selhurst Park<br> Capacity: 25,486<br> Year built: 1924</br></section>  
+
+ 
+ <section id='section7'>  <font color="#F8F8F8"><h4>Everton</h4></font>
+ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Goodison2017.JPG/450px-Goodison2017.JPG" style="width:80%;height:60%;">
+<br><br>Ground:   Goodison Park<br> Capacity: 39,414<br> Year built: 1892 </br> </section> 
+
+<section id='section8'>  <font color="#F8F8F8"><h4>Fulham</h4></font>
+ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Craven_Cottage_Football_Ground_-_geograph.org.uk_-_778731.jpg/450px-Craven_Cottage_Football_Ground_-_geograph.org.uk_-_778731.jpg" style="width:80%;height:60%;">
+<br><br>Ground: Craven Cottage<br> Capacity: 19,359<br> Year built: 1896
+</br></section>
+ 
+ <section id='section9'>  <font color="#F8F8F8"><h4>Leeds United</h4></font>
+ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/ELLAND_ROAD_STADIUM_X.jpg/330px-ELLAND_ROAD_STADIUM_X.jpg" style="width:80%;height:60%;">
+<br><br>Ground: Elland Road<br> Capacity: 37,792<br> Year built: 1897 </br> </section> 
+ 
+ 
+  <section id='section10'>  <font color="#F8F8F8"><h4>Leicester City</h4></font>
+ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/King_Power_Stadium_wide_view.jpg/450px-King_Power_Stadium_wide_view.jpg" style="width:80%;height:60%;">
+<br><br>Ground: King Power Stadium<br> Capacity: 32,261<br> Year built: 2002 </br> </section>
+
+ <section id='section11'>  <font color="#F8F8F8"><h4>Liverpool</h4></font>
+ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Panorama_of_Anfield_with_new_main_stand_%2829676137824%29.jpg/450px-Panorama_of_Anfield_with_new_main_stand_%2829676137824%29.jpg" style="width:80%;height:60%;">
+<br><br>Ground: Anfield<br> Capacity: 53,394 <br> Year built: 1884</br> </section>
+
+ <section id='section12'>  <font color="#F8F8F8"><h4>Manchester City</h4></font>
+ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Etihad_Stadium.jpg/450px-Etihad_Stadium.jpg" style="width:80%;height:60%;">
+<br><br>Ground: City of Manchester Stadium<br> Capacity: 55,017 <br> Year built: 2002</br> </section>
+
+ <section id='section13'>  <font color="#F8F8F8"><h4>Manchester United</h4></font>
+ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Manchester_United_Panorama_%288051523746%29.jpg/375px-Manchester_United_Panorama_%288051523746%29.jpg" style="width:80%;height:60%;">
+<br><br>Ground: Old Trafford<br> Capacity: 74,140 <br> Year built: 1910 </br> </section>
+
+ <section id='section14'>  <font color="#F8F8F8"><h4>Newcastle United</h4></font>
+ <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Aerial_view_of_St_James_Park_-_geograph.org.uk_-_472327_%28cropped%29.jpg" style="width:80%;height:60%;">
+<br><br>Ground: St James' Park<br> Capacity: 52,305<br> Year built: 1892 (expanded 1998-2000) </br> </section>
+
+ <section id='section15'>  <font color="#F8F8F8"><h4>Sheffield United</h4></font>
+ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Bramall_lane1.jpg/435px-Bramall_lane1.jpg" style="width:80%;height:60%;">
+<br><br>Ground: Bramall Lane<br> Capacity: 32,050 <br> Year built: 1855 </br> </section>
+
+ <section id='section16'>  <font color="#F8F8F8"><h4>Southampton</h4></font>
+ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/St_Mary%27s_Stadium_%282%29.jpg/375px-St_Mary%27s_Stadium_%282%29.jpg" style="width:80%;height:60%;">
+<br><br>Ground: St Mary's Stadium<br> Capacity: 32,384 <br> Year built: 2000 </br> </section>
+
+ <section id='section17'>  <font color="#F8F8F8"><h4>Tottenham Hotspur</h4></font>
+ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Tottenham_Hotspur_Stadium_June_2019%2C_view_from_East.jpg/420px-Tottenham_Hotspur_Stadium_June_2019%2C_view_from_East.jpg" style="width:80%;height:60%;">
+<br><br>Ground: Tottenham Hotspur Stadium<br> Capacity: 62,303<br> Year built: 2019</br> </section>
+
+ <section id='section18'>  <font color="#F8F8F8"><h4>West Bromwich Albion</h4></font>
+ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/The_Hawthorns_2013-12-21.jpg/525px-The_Hawthorns_2013-12-21.jpg" style="width:80%;height:60%;">
+<br><br>Ground: The Hawthorns<br> Capacity: 26,688<br> Year built: 1900 </br> </section>
+
+ <section id='section19'>  <font color="#F8F8F8"><h4>West Ham United</h4></font>
+ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/FloodlitLondonStadium.jpg/450px-FloodlitLondonStadium.jpg" style="width:80%;height:60%;">
+<br><br>Ground: London Stadium (Olympic Stadium) <br> Capacity: 60,000 <br> Year built: 2011 </br> </section>
+ 
+
+  <section id='section20'>  <font color="#F8F8F8"><h4>Wolverhapton Wanderers</h4></font>
+ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Molineux_Stadium%2C_Wolverhampton%2C_2018.jpg/330px-Molineux_Stadium%2C_Wolverhampton%2C_2018.jpg" style="width:80%;height:60%;">
+<br><br>Ground: Molineux Stadium<br> Capacity: 32,050 <br> Year built: 1889 </br> </section>
+  
+
+ <section id='section21'> 
+  <br>
+ <br>
+ <a href="https://twitter.com/samwise_v?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @samwise_v</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+ <br>
+ <br>
+
+
+<br>
+<br>
+<br>
+
+
+
+ <br>
+ <!-- <img src="http://snodnipper.github.io/os-zoomstack-masterclass/brand/ordnance_survey_white.png" style="width:40%;height:40%;"> -->
+ <p> <font size="1">Geographical data is based on Ordnance Survey Zoomstack. Contains OS data © Crown copyright and database rights 2018. Additional data for the new Tottenham Hotspur Stadium is based on OpenStreetMap data. © OpenStreetMap contributors. Information has been derived from Wikipedia entries. Logos and images have been sourced from Wikipedia under fair use terms but may be subject to copyright.</p>
+ 
+<br>
+<br>
+<br><br>
+<br>
+<br><br>
+<br>
+<br><br>
+<br>
+<br><br>
+<br>
+
+
+</font>
+</section> </div> 
+ <script> mapboxgl.accessToken = ''; 
+  var map = new mapboxgl.Map(
+   { container: 'map', style: 'https://raw.githubusercontent.com/samuel-jones/epl/master/SJ_EPL_MAP_STYLE_v3.json', 
+    maxZoom: 16, bearing: 0, 
+    center: [-3.056136, 52.831588],
+    zoom: 6, speed: 0.5,
+    pitch: 0 });
+
+
+var geojson = {
+"type": "FeatureCollection",
+"name": "stadia_epl",
+"features": [
+{ "type": "Feature", "properties": { "Name": "Emirates Stadium", "Team": "Arsenal", "Capacity": 60361, "Latitude": 51.555450, "Longitude": -0.108514, "Easting": 531236, "Northing": 185697, "iconSource": "https://raw.githubusercontent.com/samuel-jones/epl/master/arsenal.png" }, "geometry": { "type": "Point", "coordinates": [ -0.108436, 51.554901 ] } },
+{ "type": "Feature", "properties": { "Name": "Villa Park", "Team": "Aston_Villa", "Capacity": 42788, "Latitude": 52.509201, "Longitude": -1.88508, "Easting": 407897, "Northing": 290151, "iconSource": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f9/Aston_Villa_FC_crest_%282016%29.svg/225px-Aston_Villa_FC_crest_%282016%29.svg.png" }, "geometry": { "type": "Point", "coordinates": [ -1.88508, 52.509201 ] } },
+// { "type": "Feature", "properties": { "Name": "Seward Stadium", "Team": "Bournemouth", "Capacity": 10700, "Latitude": 50.735199, "Longitude": -1.83839, "Easting": 411501, "Northing": 92855, "iconSource": "SZ115928" }, "geometry": { "type": "Point", "coordinates": [ -1.83839, 50.735199 ] } },
+{ "type": "Feature", "properties": { "Name": "Amex Stadium", "Team": "Brighton", "Capacity": 22374, "Latitude": 50.860901, "Longitude": -0.08014, "Easting": 535213, "Northing": 108577, "iconSource": "TQ352085" }, "geometry": { "type": "Point", "coordinates": [ -0.083718, 50.861557 ] } },
+{ "type": "Feature", "properties": { "Name": "Turf Moor", "Team": "Burnley", "Capacity": 22546, "Latitude": 53.788799, "Longitude": -2.23018, "Easting": 384933, "Northing": 432522, "iconSource": "SD849325" }, "geometry": { "type": "Point", "coordinates": [ -2.23018, 53.788799 ] } },
+{ "type": "Feature", "properties": { "Name": "Stamford Bridge", "Team": "Chelsea", "Capacity": 41837, "Latitude": 51.481602, "Longitude": -0.191034, "Easting": 525711, "Northing": 177401, "iconSource": "TQ257774" }, "geometry": { "type": "Point", "coordinates": [ -0.191034, 51.481602 ] } },
+{ "type": "Feature", "properties": { "Name": "Selhurst Park", "Team": "Crystal_Palace", "Capacity": 26309, "Latitude": 51.3983, "Longitude": -0.085455, "Easting": 533284, "Northing": 168324, "iconSource": "TQ332683" }, "geometry": { "type": "Point", "coordinates": [ -0.085455, 51.3983 ] } },
+{ "type": "Feature", "properties": { "Name": "Goodison Park", "Team": "Everton", "Capacity": 40157, "Latitude": 53.438702, "Longitude": -2.96619, "Easting": 335914, "Northing": 393982, "iconSource": "SJ359939" }, "geometry": { "type": "Point", "coordinates": [ -2.96619, 53.438702 ] } },
+{ "type": "Feature", "properties": { "Name": "Molineux", "Team": "Wolves", "Capacity": 27828, "Latitude": 52.590401, "Longitude": -2.13061, "Easting": 391249, "Northing": 299185, "iconSource": "SO912991" }, "geometry": { "type": "Point", "coordinates": [ -2.13061, 52.590401 ] } },
+{ "type": "Feature", "properties": { "Name": "King Power Stadium", "Team": "Leicester_City", "Capacity": 32262, "Latitude": 52.6203, "Longitude": -1.14217, "Easting": 458171, "Northing": 302849, "iconSource": "SK581028" }, "geometry": { "type": "Point", "coordinates": [ -1.14217, 52.6203 ] } },
+{ "type": "Feature", "properties": { "Name": "Anfield", "Team": "Liverpool", "Capacity": 45522, "Latitude": 53.430801, "Longitude": -2.96096, "Easting": 336250, "Northing": 393098, "iconSource": "SJ362930" }, "geometry": { "type": "Point", "coordinates": [ -2.96096, 53.430801 ] } },
+{ "type": "Feature", "properties": { "Name": "Etihad Stadium", "Team": "Man_City", "Capacity": 47805, "Latitude": 53.483002, "Longitude": -2.20024, "Easting": 386809, "Northing": 398494, "iconSource": "https://mitickets.com/images/mi-images/thumbnail/Manchester_City.png" }, "geometry": { "type": "Point", "coordinates": [ -2.20024, 53.483002 ] } },
+{ "type": "Feature", "properties": { "Name": "Old Trafford", "Team": "Man_Utd", "Capacity": 75811, "Latitude": 53.4631, "Longitude": -2.29139, "Easting": 380751, "Northing": 396301, "iconSource": "SJ807963" }, "geometry": { "type": "Point", "coordinates": [ -2.29139, 53.4631 ] } },
+{ "type": "Feature", "properties": { "Name": "St James Park", "Team": "Newcastle_United", "Capacity": 52387, "Latitude": 54.975601, "Longitude": -1.62179, "Easting": 424307, "Northing": 564619, "iconSource": "NZ243646" }, "geometry": { "type": "Point", "coordinates": [ -1.62179, 54.975601 ] } },
+// { "type": "Feature", "properties": { "Name": "Carrow Road", "Team": "Norwich_City", "Capacity": 27033, "Latitude": 52.622101, "Longitude": 1.30912, "Easting": 624081, "Northing": 307846, "iconSource": "TG240078" }, "geometry": { "type": "Point", "coordinates": [ 1.30912, 52.622101 ] } },
+{ "type": "Feature", "properties": { "Name": "Bramall Lane", "Team": "Sheffield_Utd", "Capacity": 32702, "Latitude": 53.3703, "Longitude": -1.47083, "Easting": 435307, "Northing": 386068, "iconSource": "SK353860" }, "geometry": { "type": "Point", "coordinates": [ -1.47083, 53.3703 ] } },
+{ "type": "Feature", "properties": { "Name": "St Mary's Stadium", "Team": "Southampton", "Capacity": 32689, "Latitude": 50.9058, "Longitude": -1.39114, "Easting": 442907, "Northing": 111990, "iconSource": "SU429119" }, "geometry": { "type": "Point", "coordinates": [ -1.39114, 50.9058 ] } },
+
+// { "type": "Feature", "properties": { "Name": "Vicarage Road", "Team": "Watford", "Capacity": 17477, "Latitude": 51.649799, "Longitude": -0.401569, "Easting": 510684, "Northing": 195766, "iconSource": "TQ106957" }, "geometry": { "type": "Point", "coordinates": [ -0.401569, 51.649799 ] } },
+
+{ "type": "Feature", "properties": { "Name": "Craven Cottage", "Team": "Fulham", "Capacity": 19359, "Latitude": 51.474801004083375, "Longitude": -0.22180136200524028, "Easting": 534057, "Northing": 191156, "iconSource": "TQ340911" }, "geometry": { "type": "Point", "coordinates": [ -0.22180136200524028, 51.474801004083375 ] } },
+
+{ "type": "Feature", "properties": { "Name": "The Hawthorns", "Team": "WBA", "Capacity":   26688, "Latitude": 52.509167, "Longitude": -1.963889, "Easting": 534057, "Northing": 191156, "iconSource": "TQ340911" }, "geometry": { "type": "Point", "coordinates": [ -1.963889, 52.509167 ] } },
+
+
+{ "type": "Feature", "properties": { "Name": "Elland Road", "Team": "Leeds", "Capacity":  37792, "Latitude": 53.777778, "Longitude": -1.572222, "Easting": 534057, "Northing": 191156, "iconSource": "TQ340911" }, "geometry": { "type": "Point", "coordinates": [ -1.572222, 53.777778 ] } },
+
+
+
+{ "type": "Feature", "properties": { "Name": "White Hart Lane", "Team": "Spurs", "Capacity": 36230, "Latitude": 51.603298, "Longitude": -0.065684, "Easting": 534057, "Northing": 191156, "iconSource": "TQ340911" }, "geometry": { "type": "Point", "coordinates": [ -0.065984, 51.604598 ] } },
+
+
+{ "type": "Feature", "properties": { "Name": "Olympic Stadium", "Team": "West_Ham", "Capacity": 60000, "Latitude": 51.5383, "Longitude": -0.016587, "Easting": 537653, "Northing": 184019, "iconSource": "TQ376840" }, "geometry": { "type": "Point", "coordinates": [ -0.016587, 51.5383 ] } }
+]
+};
+
+
+
+// add markers to map
+geojson.features.forEach(function(marker) {
+// create a DOM element for the marker
+var el = document.createElement('div');
+el.className = 'marker';
+el.style.backgroundImage = 'url(https://raw.githubusercontent.com/samuel-jones/epl/master/' + marker.properties.Team + '.png';
+// el.style.backgroundImage = 'url(https://raw.githubusercontent.com/samuel-jones/epl/master/'+ marker.properties.Team.join+'.png/)';
+// el.style.backgroundImage = 'url(https://raw.githubusercontent.com/samuel-jones/epl/master/' + marker.properties.Team.join('/') + '/)';
+// el.style.backgroundImage = 'url(https://placekitten.com/g/' + marker.properties.iconSize.join('/') + '/)';
+https://raw.githubusercontent.com/samuel-jones/epl/master/arsenal.png
+el.style.width =  '30px';
+el.style.height = '30px';
+// el.style.width = marker.properties.iconSize[0] + 'px';
+// el.style.height = marker.properties.iconSize[1] + 'px';
+ 
+// el.addEventListener('click', function() {
+// window.alert(marker.properties.Name + '  ' + marker.properties.Capacity );
+// });
+ 
+// add marker to map
+new mapboxgl.Marker(el)
+.setLngLat(marker.geometry.coordinates)
+.addTo(map);
+});
+
+
+map.addControl(new mapboxgl.NavigationControl(), 'top-left');
+
+map.addControl(new mapboxgl.FullscreenControl(), 'top-left');
+
+
+// Add geolocate control to the map.
+map.addControl(new mapboxgl.GeolocateControl({
+positionOptions: {
+enableHighAccuracy: true
+},
+trackUserLocation: true
+}), 'top-left');
+
+
+  var chapters = {
+   'welcome': { bearing: 0, 
+               center: [-3.056136, 52.831588],
+               zoom: 6, 
+               speed: 0.5,
+               pitch: 0 }, 
+   'section1': { bearing: 0, 
+                center: [-0.108436, 51.554901], //arsenal emirates  
+                speed: 0.5, zoom: 20, 
+                pitch: 60 },
+   'section2': { center: [-1.884722,52.509167], //villa park
+                bearing: 0, zoom: 19, 
+                speed: 0.5,
+                pitch: 60 }, 
+   'section3': { bearing: 0, 
+                center: [-0.083718, 50.8615578], //brighton
+                zoom: 20, speed: 0.5, pitch: 60 }, 
+   'section4': { bearing: 0,
+                center: [-2.23018, 53.788799 ],  //burnley
+                zoom: 19, speed: 0.5, pitch: 60 },
+   'section5': { center: [-0.191034, 51.481602], //chelsea
+                bearing: 0, zoom: 19, 
+                speed: 0.5,
+                pitch: 60 }, 
+   'section6': { bearing: 0, 
+                center: [-0.085455, 51.3983],  //palace
+                zoom: 20, speed: 0.5, pitch: 60 }, 
+   'section7': { bearing: 0,
+                center: [-2.96619, 53.438702 ],  //everton
+                zoom: 20, speed: 0.5, pitch: 60 },
+   'section8': { center: [-0.22180136200524028, 51.474801004083375 ],//fulham
+                bearing: 0, zoom: 19, 
+                speed: 0.5,
+                pitch: 60 }, 
+   'section9': { bearing: 0, 
+                center: [-1.572222, 53.777778], //leeds
+                zoom: 20, speed: 0.5, pitch: 60 }, 
+   'section10': { bearing: 0,
+                center: [-1.14217, 52.6203], //leicester
+                zoom: 20, speed: 0.5, pitch: 60 },
+   'section11': { center: [-2.96096, 53.430801], //liverpool
+                bearing: 0, zoom: 19, 
+                speed: 0.5,
+                pitch: 60 }, 
+    'section12': { center: [-2.20024, 53.483002],//man city
+                bearing: 0, zoom: 19, 
+                speed: 0.5,
+                pitch: 60 }, 
+   'section13': { bearing: 0, 
+                center: [-2.29139, 53.4631 ],  //man utd
+                zoom: 20, speed: 0.5, pitch: 60 }, 
+   'section14': { bearing: 0,
+                center: [ -1.62179, 54.975601 ], //newc
+                zoom: 20, speed: 0.5, pitch: 60 },
+   'section15': { bearing: 0, 
+                center: [-1.47083, 53.3703],  //sheff utd
+                speed: 0.5, zoom: 20, 
+                pitch: 60 },
+   'section16': { center: [-1.39114, 50.9058], //southampton 
+                bearing: 0, zoom: 19, 
+                speed: 0.5,
+                pitch: 60 }, 
+   'section17': { bearing: 0, 
+                center: [ -0.065984, 51.604598], //spurs
+                zoom: 20, speed: 0.5, pitch: 60 }, 
+   'section18': { bearing: 0,
+                center: [-1.963889, 52.509167 ], //wba
+                zoom: 20, speed: 0.5, pitch: 60 },
+   'section19': { center: [-0.016587, 51.5383], //west ham
+                bearing: 0, zoom: 19, 
+                speed: 0.5,
+                pitch: 60 }, 
+   'section20': { bearing: 0, center: [-2.13061, 52.590401], //wolves
+                zoom: 19, pitch: 60, 
+                speed: 0.5 },
+   'section21':{ bearing: 0, 
+               center: [-3.056136, 52.831588],
+               zoom: 6, 
+               speed: 0.5,
+               pitch: 0 } };
+  // On every scroll event, check which element is on screen
+ window.onscroll = function() { 
+  var chapterNames = Object.keys(chapters); 
+  for (var i = 0; i < chapterNames.length; i++){
+  var chapterName = chapterNames[i]; 
+  if (isElementOnScreen(chapterName)) { 
+   setActiveChapter(chapterName);
+   break; 
+  }
+  }
+ }; 
+  var activeChapterName = 'baker'; 
+  function setActiveChapter(chapterName) { 
+   if (chapterName === activeChapterName) return;
+   map.flyTo(chapters[chapterName]); 
+   document.getElementById(chapterName).setAttribute('class', 'active'); 
+   document.getElementById(activeChapterName).setAttribute('class', ''); 
+   activeChapterName = chapterName;
+  } 
+  function isElementOnScreen(id) { 
+   var element = document.getElementById(id); 
+   var bounds = element.getBoundingClientRect(); 
+   return bounds.top < window.innerHeight && bounds.bottom > 0;
+  } 
+ </script>
+ </body>
+</html>
